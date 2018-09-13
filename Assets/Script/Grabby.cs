@@ -16,6 +16,7 @@ public class Grabby : MonoBehaviour {
 
 	protected virtual void GrabObject()
     {
+        Debug.Log("Try to grab.");
         isGrabbing = true;
 
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, grabRadius, transform.forward, 0f, grabMask);
@@ -69,7 +70,7 @@ public class Grabby : MonoBehaviour {
 
         float triggerValue = Input.GetAxis(GrabInput);
 
-        Debug.Log(name + " velocity " + OVRInput.GetLocalControllerAngularVelocity(thisController));
+        //Debug.Log(name + " velocity " + OVRInput.GetLocalControllerAngularVelocity(thisController));
         if (!isGrabbing && triggerValue == 1)
         {
             GrabObject();
