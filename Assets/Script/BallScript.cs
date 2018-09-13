@@ -16,4 +16,26 @@ public class BallScript : MonoBehaviour {
             rb.angularVelocity = Vector3.zero;
         }
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        PaddleScript paddle = collision.gameObject.GetComponent<PaddleScript>();
+        if (paddle)
+        {
+
+            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+            rb.velocity += paddle.handVelocity;
+            /*if (rb.velocity.magnitude >= maxV)
+            {
+
+            }
+            else
+            {
+                rb.velocity *= speed;
+            }*/
+            Debug.Log(collision.gameObject.name);
+            Debug.Log(rb.velocity.magnitude);
+        }
+
+    }
+
 }

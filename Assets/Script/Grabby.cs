@@ -79,5 +79,14 @@ public class Grabby : MonoBehaviour {
             DropObject();
         }
         
+
+        if(grabbedObject)
+        {
+            PaddleScript paddle = grabbedObject.GetComponent<PaddleScript>();
+            if(paddle)
+            {
+                paddle.handVelocity = OVRInput.GetLocalControllerVelocity(thisController);
+            }
+        }
 	}
 }

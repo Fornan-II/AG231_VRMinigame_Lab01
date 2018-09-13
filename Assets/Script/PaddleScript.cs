@@ -6,25 +6,5 @@ public class PaddleScript : MonoBehaviour {
 
     public int speed = 5;
     public int maxV = 10;
-    private void OnCollisionExit(Collision collision)
-    {
-       
-        if(collision.gameObject.tag == "Ball")
-        {
-            
-            GameObject ball = collision.gameObject;
-            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-            if (rb.velocity.magnitude >= maxV)
-            {
-
-            }
-            else
-            {
-                rb.velocity *= speed;
-            }
-            Debug.Log(collision.gameObject.name);
-            Debug.Log(rb.velocity.magnitude);
-        }
-
-    }
+    public Vector3 handVelocity = Vector3.zero;
 }
