@@ -18,9 +18,11 @@ public class BallScript : MonoBehaviour {
     }
     private void OnCollisionExit(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
         PaddleScript paddle = collision.gameObject.GetComponent<PaddleScript>();
         if (paddle)
         {
+            
 
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
             rb.velocity += paddle.handVelocity;
