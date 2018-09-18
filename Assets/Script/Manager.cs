@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour {
     public Canvas GameMan;
     public Text GOver;
+    public Text ScoreText;
     public GameObject ball;
     public GameObject player;
     public GameObject paddle;
     public Transform playerSpawn;
     public Transform paddleSpawn;
+    
 
     public void Lost()
     {
@@ -20,13 +23,18 @@ public class Manager : MonoBehaviour {
        // GameMan.gameObject.SetActive(true);
     }
 
+
+
     private void Update()
     {
+        ScoreText.text = "Score: " + BrickScript.score;
+
         if (GOver.enabled == true)
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                GOver.enabled = false;//game over text disabled
+                SceneManager.LoadScene("GameScene");
+                /*GOver.enabled = false;//game over text disabled
 
                 // spawning ball 
                 BallScript b = ball.GetComponent<BallScript>();         
@@ -44,6 +52,9 @@ public class Manager : MonoBehaviour {
                 //spawning paddle
                 paddle.gameObject.transform.position = paddleSpawn.position;
                 paddle.gameObject.transform.rotation = paddleSpawn.rotation;
+
+                //score reset
+                ScoreText.text = "Score: " + BrickScript.score;*/
             }
         }
     }

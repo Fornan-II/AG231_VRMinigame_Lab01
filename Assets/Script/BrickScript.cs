@@ -8,6 +8,7 @@ public class BrickScript : MonoBehaviour {
     protected static int totalBrickCount = 0;
     public GameObject destroyParticlePrefab;
     public float particleLifeTime;
+    public static int score;
 
     protected virtual void Start()
     {
@@ -27,5 +28,10 @@ public class BrickScript : MonoBehaviour {
             Destroy(gameObject);
             bricksRemaining--;
         }
+    }
+
+    private void Update()
+    {
+        score = totalBrickCount - bricksRemaining;
     }
 }
