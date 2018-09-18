@@ -6,6 +6,9 @@ using UnityEngine;
 public class Manager : MonoBehaviour {
     public Canvas GameMan;
     public Text GOver;
+    public GameObject ball;
+    public GameObject player;
+    public Transform playerSpawn;
 
     public void Lost()
     {
@@ -20,7 +23,17 @@ public class Manager : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                GOver.enabled = false;
+                GOver.enabled = false;//game over text disabled
+
+                // spawning ball 
+                BallScript b = ball.GetComponent<BallScript>();         
+                ball.transform.position = b.spawnpt.transform.position;
+                Rigidbody rb = ball.GetComponent<Rigidbody>();
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+
+                //spawning player
+                player.gameObject.transform.position = playerSpawn.position;
             }
         }
     }

@@ -6,7 +6,7 @@ public class BallScript : MonoBehaviour {
 
     public GameObject spawnpt;
     public GameObject SceneManager;
-    private void Update()
+    /*private void Update()
     {
         if(Input.GetButtonDown("Fire1"))
         {
@@ -15,7 +15,7 @@ public class BallScript : MonoBehaviour {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
-    }
+    }*/
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "backwall")
