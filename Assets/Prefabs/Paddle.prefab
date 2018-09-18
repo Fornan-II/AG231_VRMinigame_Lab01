@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4217233044595932}
   - component: {fileID: 65598420830905356}
-  - component: {fileID: 114016178809125492}
+  - component: {fileID: 114814657432788200}
   m_Layer: 9
   m_Name: Paddle
   m_TagString: Untagged
@@ -126,7 +126,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.72, y: 1.05, z: 0.099999994}
   m_Center: {x: 0, y: 0.64, z: 0}
---- !u!114 &114016178809125492
+--- !u!114 &114814657432788200
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,5 +137,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b342a6c798a244fa79e1741f905522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  maxV: 10
