@@ -1792,6 +1792,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4680457274693680, guid: 021d344ca146f4141910a57fc17042da,
     type: 2}
   m_PrefabInternal: {fileID: 821528473}
+--- !u!1001 &958577425
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4156955416264158, guid: 9eb119d5d3667924a9d498b181fecba6, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.929
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156955416264158, guid: 9eb119d5d3667924a9d498b181fecba6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.523
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156955416264158, guid: 9eb119d5d3667924a9d498b181fecba6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156955416264158, guid: 9eb119d5d3667924a9d498b181fecba6, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156955416264158, guid: 9eb119d5d3667924a9d498b181fecba6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156955416264158, guid: 9eb119d5d3667924a9d498b181fecba6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156955416264158, guid: 9eb119d5d3667924a9d498b181fecba6, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156955416264158, guid: 9eb119d5d3667924a9d498b181fecba6, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734489076322444, guid: 9eb119d5d3667924a9d498b181fecba6, type: 2}
+      propertyPath: m_Name
+      value: PaddleSpawn
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9eb119d5d3667924a9d498b181fecba6, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &967689701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,6 +2005,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4680457274693680, guid: 021d344ca146f4141910a57fc17042da,
     type: 2}
   m_PrefabInternal: {fileID: 1082073548}
+--- !u!1 &1104088360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1210522742812864, guid: 0e362d3791561934a8cf3034b98b3cb0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1388614289}
 --- !u!1001 &1149971159
 Prefab:
   m_ObjectHideFlags: 0
@@ -2439,11 +2490,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4217233044595932, guid: 0e362d3791561934a8cf3034b98b3cb0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.07
+      value: -0.929
       objectReference: {fileID: 0}
     - target: {fileID: 4217233044595932, guid: 0e362d3791561934a8cf3034b98b3cb0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.848
+      value: 0.523
       objectReference: {fileID: 0}
     - target: {fileID: 4217233044595932, guid: 0e362d3791561934a8cf3034b98b3cb0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2468,6 +2519,11 @@ Prefab:
     - target: {fileID: 4217233044595932, guid: 0e362d3791561934a8cf3034b98b3cb0, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 54136549411920174, guid: 0e362d3791561934a8cf3034b98b3cb0,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e362d3791561934a8cf3034b98b3cb0, type: 2}
@@ -3300,6 +3356,11 @@ Transform:
   m_Father: {fileID: 1063261494}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
+--- !u!4 &1797273020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4156955416264158, guid: 9eb119d5d3667924a9d498b181fecba6,
+    type: 2}
+  m_PrefabInternal: {fileID: 958577425}
 --- !u!1001 &1844813505
 Prefab:
   m_ObjectHideFlags: 0
@@ -3496,7 +3557,9 @@ MonoBehaviour:
   GOver: {fileID: 579821341}
   ball: {fileID: 1415059328}
   player: {fileID: 967689701}
+  paddle: {fileID: 1104088360}
   playerSpawn: {fileID: 175188195}
+  paddleSpawn: {fileID: 1797273020}
 --- !u!4 &1899840932
 Transform:
   m_ObjectHideFlags: 0

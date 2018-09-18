@@ -8,12 +8,15 @@ public class Manager : MonoBehaviour {
     public Text GOver;
     public GameObject ball;
     public GameObject player;
+    public GameObject paddle;
     public Transform playerSpawn;
+    public Transform paddleSpawn;
 
     public void Lost()
     {
         Debug.Log("gameover");
         GOver.enabled = true;
+        ball.GetComponent<SphereCollider>().material = null;
        // GameMan.gameObject.SetActive(true);
     }
 
@@ -37,6 +40,10 @@ public class Manager : MonoBehaviour {
 
                 //spawning player
                 player.gameObject.transform.position = playerSpawn.position;
+
+                //spawning paddle
+                paddle.gameObject.transform.position = paddleSpawn.position;
+                paddle.gameObject.transform.rotation = paddleSpawn.rotation;
             }
         }
     }
