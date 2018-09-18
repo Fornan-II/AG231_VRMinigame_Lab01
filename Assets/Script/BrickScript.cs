@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BrickScript : MonoBehaviour {
 
-    public static int ballsRemaining = 0;
-    protected static int totalBallCount = 0;
+    public static int bricksRemaining = 0;
+    protected static int totalBrickCount = 0;
     public GameObject destroyParticlePrefab;
     public float particleLifeTime;
 
     protected virtual void Start()
     {
-        totalBallCount++;
-        ballsRemaining++;
+        totalBrickCount++;
+        bricksRemaining++;
     }
 
     protected virtual void OnCollisionEnter(Collision collision)
@@ -25,7 +25,7 @@ public class BrickScript : MonoBehaviour {
                 Destroy(particle, particleLifeTime);
             }
             Destroy(gameObject);
-            ballsRemaining--;
+            bricksRemaining--;
         }
     }
 }

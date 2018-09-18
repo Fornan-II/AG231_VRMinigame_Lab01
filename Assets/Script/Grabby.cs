@@ -12,6 +12,7 @@ public class Grabby : MonoBehaviour {
     public string GrabInput;
 
     protected GameObject grabbedObject;
+    protected GrabbedObject grabbedObjectScript;
     protected bool isGrabbing = false;
 
 	protected virtual void GrabObject()
@@ -34,11 +35,16 @@ public class Grabby : MonoBehaviour {
             grabbedObject = hits[closestHitIndex].transform.gameObject;
             Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
             if(rb) { rb.isKinematic = true; }
-            grabbedObject.transform.parent = transform;
-            if(centerGrabbedObject)
-			{
-				grabbedObject.transform.localPosition = Vector3.zero;	
-			}
+
+            GrabbedObject grabbedObjectScript = grabbedObject.GetComponent<GrabbedObject>();
+            if(!grabbedObjectScript)
+            {
+                grabbedObject.transform.parent = transform;
+                if (centerGrabbedObject)
+                {
+                    grabbedObject.transform.localPosition = Vector3.zero;
+                }
+            }
         }
     }
 
@@ -46,7 +52,7 @@ public class Grabby : MonoBehaviour {
     {
         isGrabbing = false;
 
-        if(!grabbedObject) { return; }
+        if (!grabbedObject) { return; }
 
         grabbedObject.transform.parent = null;
         Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
@@ -59,7 +65,10 @@ public class Grabby : MonoBehaviour {
             //This line above, MAKE SURE IT WORKS. @ 28:58 in the video, the guy used a different approach.
         }
 
-
+        if (grabbedObjectScript)
+        {
+            grabbedObjectScript = null;
+        }
 
         grabbedObject = null;
     }
@@ -80,13 +89,9 @@ public class Grabby : MonoBehaviour {
         }
         
 
-        if(grabbedObject)
+        if(grabbedObjectScript)
         {
-            PaddleScript paddle = grabbedObject.GetComponent<PaddleScript>();
-            if(paddle)
-            {
-                paddle.handVelocity = OVRInput.GetLocalControllerVelocity(thisController);
-            }
+            grabbedObjectScript.SyncWith(transform, OVRInput.GetLocalControllerVelocity(thisController));
         }
 	}
 }
