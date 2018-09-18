@@ -12,7 +12,7 @@ public class Grabby : MonoBehaviour {
     public string GrabInput;
 
     protected GameObject grabbedObject;
-    pub GrabbedObject grabbedObjectScript;
+    public GrabbedObject grabbedObjectScript;
     protected bool isGrabbing = false;
 
 	protected virtual void GrabObject()
