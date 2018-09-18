@@ -29,6 +29,10 @@ public class GrabbedObject : MonoBehaviour {
                 }
             }
         }
+        else
+        {
+            Debug.Log("No rigidbody on " + name);
+        }
 
         Debug.Log("Position " + holder.position);
         transform.position = holder.position;

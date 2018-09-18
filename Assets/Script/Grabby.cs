@@ -13,6 +13,7 @@ public class Grabby : MonoBehaviour {
 
     protected GameObject grabbedObject;
     protected GrabbedObject grabbedObjectScript;
+    protected bool wasKinematic;
     protected bool isGrabbing = false;
 
 	protected virtual void GrabObject()
@@ -34,7 +35,11 @@ public class Grabby : MonoBehaviour {
 
             grabbedObject = hits[closestHitIndex].transform.gameObject;
             Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
-            if(rb) { rb.isKinematic = true; }
+            if(rb)
+            {
+                wasKinematic = rb.isKinematic;
+                rb.isKinematic = true;
+            }
 
             grabbedObjectScript = grabbedObject.GetComponent<GrabbedObject>();
             if(!grabbedObjectScript)
@@ -63,7 +68,7 @@ public class Grabby : MonoBehaviour {
         if (rb)
         {
             Debug.Log(name + " releases");
-            rb.isKinematic = false;
+            rb.isKinematic = wasKinematic;
             rb.velocity = OVRInput.GetLocalControllerVelocity(thisController);
             rb.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(thisController);
             //This line above, MAKE SURE IT WORKS. @ 28:58 in the video, the guy used a different approach.
