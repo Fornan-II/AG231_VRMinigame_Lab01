@@ -36,7 +36,7 @@ public class Grabby : MonoBehaviour {
             Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
             if(rb) { rb.isKinematic = true; }
 
-            GrabbedObject grabbedObjectScript = grabbedObject.GetComponent<GrabbedObject>();
+            grabbedObjectScript = grabbedObject.GetComponent<GrabbedObject>();
             if(!grabbedObjectScript)
             {
                 grabbedObject.transform.parent = transform;
