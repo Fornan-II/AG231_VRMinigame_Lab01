@@ -13,10 +13,12 @@ public class GrabbedObject : MonoBehaviour {
 
     public void SyncWith(Transform holder, Vector3 velocity)
     {
+        Debug.Log("Rotation " + holder.rotation);
         transform.rotation = holder.rotation;
 
         if(_rb)
         {
+            Debug.Log("Rigidbody exists, velocity " + velocity);
             Vector3 moveVector = holder.position - transform.position;
             RaycastHit[] allHits = _rb.SweepTestAll(moveVector, moveVector.magnitude, QueryTriggerInteraction.Ignore);
             foreach (RaycastHit rch in allHits)
@@ -28,6 +30,7 @@ public class GrabbedObject : MonoBehaviour {
             }
         }
 
+        Debug.Log("Position " + holder.position);
         transform.position = holder.position;
     }
 }

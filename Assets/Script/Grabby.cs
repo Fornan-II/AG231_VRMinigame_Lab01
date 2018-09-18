@@ -91,6 +91,7 @@ public class Grabby : MonoBehaviour {
 
         if(grabbedObjectScript)
         {
+            Debug.Log("Has grabbedObjectScript");
             grabbedObjectScript.SyncWith(transform, OVRInput.GetLocalControllerVelocity(thisController));
         }
 	}
