@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 54364309896387384}
   - component: {fileID: 136152586788031022}
   - component: {fileID: 114529008449910336}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 65012967697718860}
   - component: {fileID: 114693798185504700}
   - component: {fileID: 114184219112241940}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HandLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 65853903659976760}
   - component: {fileID: 114642772447118962}
   - component: {fileID: 114910113655404362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HandRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 20098814381580992}
   - component: {fileID: 81214486345835188}
   - component: {fileID: 114268835869245946}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
