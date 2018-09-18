@@ -12,7 +12,7 @@ public class Grabby : MonoBehaviour {
     public string GrabInput;
 
     protected GameObject grabbedObject;
-    public GrabbedObject grabbedObjectScript;
+    protected GrabbedObject grabbedObjectScript;
     protected bool isGrabbing = false;
 
 	protected virtual void GrabObject()
@@ -71,6 +71,7 @@ public class Grabby : MonoBehaviour {
 
         if (grabbedObjectScript)
         {
+            Debug.Log("reseting grabbedObjectScript");
             grabbedObjectScript = null;
         }
 
@@ -91,8 +92,8 @@ public class Grabby : MonoBehaviour {
         {
             DropObject();
         }
-        
 
+        Debug.Log("Hand update, grabbedObjectScript = " + grabbedObjectScript);
         if(grabbedObjectScript)
         {
             Debug.Log("Has grabbedObjectScript");
