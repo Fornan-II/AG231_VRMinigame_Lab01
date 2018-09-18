@@ -20,7 +20,7 @@ public class BrickScript : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Ball")
         {
-            if(destroyParticlePrefab)
+            if (destroyParticlePrefab)
             {
                 GameObject particle = Instantiate(destroyParticlePrefab, collision.transform.position, collision.transform.rotation);
                 Destroy(particle, particleLifeTime);

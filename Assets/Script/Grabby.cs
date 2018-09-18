@@ -13,12 +13,10 @@ public class Grabby : MonoBehaviour {
 
     protected GameObject grabbedObject;
     protected GrabbedObject grabbedObjectScript;
-    protected bool wasKinematic;
     protected bool isGrabbing = false;
 
 	protected virtual void GrabObject()
     {
-        Debug.Log("Try to grab.");
         isGrabbing = true;
 
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, grabRadius, transform.forward, 0f, grabMask);
@@ -37,22 +35,17 @@ public class Grabby : MonoBehaviour {
             Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
             if(rb)
             {
-                wasKinematic = rb.isKinematic;
                 rb.isKinematic = true;
             }
 
             grabbedObjectScript = grabbedObject.GetComponent<GrabbedObject>();
-            if(!grabbedObjectScript)
+            if(/*!grabbedObjectScript*/true)
             {
                 grabbedObject.transform.parent = transform;
                 if (centerGrabbedObject)
                 {
                     grabbedObject.transform.localPosition = Vector3.zero;
                 }
-            }
-            else
-            {
-                Debug.Log(grabbedObjectScript.name + " is the thingy");
             }
         }
     }
@@ -67,8 +60,7 @@ public class Grabby : MonoBehaviour {
         Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
         if (rb)
         {
-            Debug.Log(name + " releases");
-            rb.isKinematic = wasKinematic;
+            rb.isKinematic = false;
             rb.velocity = OVRInput.GetLocalControllerVelocity(thisController);
             rb.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(thisController);
             //This line above, MAKE SURE IT WORKS. @ 28:58 in the video, the guy used a different approach.
@@ -76,7 +68,6 @@ public class Grabby : MonoBehaviour {
 
         if (grabbedObjectScript)
         {
-            Debug.Log("reseting grabbedObjectScript");
             grabbedObjectScript = null;
         }
 
@@ -84,7 +75,7 @@ public class Grabby : MonoBehaviour {
     }
 
     // Update is called once per frame
-    protected virtual void Update () {
+    protected virtual void FixedUpdate () {
         if(!XRDevice.isPresent) { return; }
 
         float triggerValue = Input.GetAxis(GrabInput);
@@ -98,11 +89,10 @@ public class Grabby : MonoBehaviour {
             DropObject();
         }
 
-        Debug.Log("Hand update, grabbedObjectScript = " + grabbedObjectScript);
         if(grabbedObjectScript)
         {
-            Debug.Log("Has grabbedObjectScript");
-            grabbedObjectScript.SyncWith(transform, OVRInput.GetLocalControllerVelocity(thisController));
+            //grabbedObjectScript.SyncWith(transform, OVRInput.GetLocalControllerVelocity(thisController));
+            grabbedObjectScript.myVelocity = OVRInput.GetLocalControllerVelocity(thisController);
         }
 	}
 }
