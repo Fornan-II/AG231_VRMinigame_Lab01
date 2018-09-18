@@ -22,7 +22,7 @@ public class BallScript : MonoBehaviour {
         {
             Debug.Log(collision.gameObject.name);
             //gameObject.GetComponent<BallScript>().enabled = false;
-            gameObject.GetComponent<SphereCollider>().material = null; //to stop bounce
+            
             Manager sm = SceneManager.GetComponent<Manager>();
             sm.Lost();
 
