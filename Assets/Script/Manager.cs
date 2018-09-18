@@ -1,23 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Manager : MonoBehaviour {
-    public Canvas GameOver;
+    public Canvas GameMan;
+    public Text GOver;
 
     public void Lost()
     {
         Debug.Log("gameover");
-        GameOver.gameObject.SetActive(true);
+        GOver.enabled = true;
+       // GameMan.gameObject.SetActive(true);
     }
 
     private void Update()
     {
-        if (GameOver.enabled == true)
+        if (GOver.enabled == true)
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                GameOver.enabled = false;
+                GOver.enabled = false;
             }
         }
     }
