@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallScript : MonoBehaviour {
 
     public GameObject spawnpt;
-
+    public GameObject SceneManager;
     private void Update()
     {
         if(Input.GetButtonDown("Fire1"))
@@ -18,7 +18,7 @@ public class BallScript : MonoBehaviour {
     }
     private void OnCollisionExit(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
+       
         PaddleScript paddle = collision.gameObject.GetComponent<PaddleScript>();
         if (paddle)
         {
@@ -37,6 +37,15 @@ public class BallScript : MonoBehaviour {
             Debug.Log(collision.gameObject.name);
             Debug.Log(rb.velocity.magnitude);
         }
+        if(collision.gameObject.name == "backwall")
+        {
+            Debug.Log(collision.gameObject.name);
+            //gameObject.GetComponent<BallScript>().enabled = false;
+            gameObject.GetComponent<SphereCollider>().material = null; //to stop bounce
+            SceneManager.GetComponent<Manager>().Lost();      
+
+        }
+
 
     }
 
