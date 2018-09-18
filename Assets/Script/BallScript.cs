@@ -37,16 +37,19 @@ public class BallScript : MonoBehaviour {
             Debug.Log(collision.gameObject.name);
             Debug.Log(rb.velocity.magnitude);
         }
-        if(collision.gameObject.name == "backwall")
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "backwall")
         {
             Debug.Log(collision.gameObject.name);
             //gameObject.GetComponent<BallScript>().enabled = false;
             gameObject.GetComponent<SphereCollider>().material = null; //to stop bounce
-            SceneManager.GetComponent<Manager>().Lost();      
+            Manager sm = SceneManager.GetComponent<Manager>();
+            sm.Lost();
 
         }
-
-
     }
 
 }

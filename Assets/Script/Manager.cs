@@ -7,7 +7,8 @@ public class Manager : MonoBehaviour {
 
     public void Lost()
     {
-        GameOver.enabled = true;
+        Debug.Log("gameover");
+        GameOver.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -17,7 +18,6 @@ public class Manager : MonoBehaviour {
             if (Input.GetButtonDown("Fire1"))
             {
                 GameOver.enabled = false;
-
             }
         }
     }
