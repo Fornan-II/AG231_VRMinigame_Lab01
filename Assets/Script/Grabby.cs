@@ -12,7 +12,7 @@ public class Grabby : MonoBehaviour {
     public string GrabInput;
 
     protected GameObject grabbedObject;
-    protected GrabbedObject grabbedObjectScript;
+    public GrabbedObject grabbedObjectScript;
     protected bool isGrabbing = false;
 
 	protected virtual void GrabObject()
@@ -37,7 +37,6 @@ public class Grabby : MonoBehaviour {
             if(rb) { rb.isKinematic = true; }
 
             GrabbedObject grabbedObjectScript = grabbedObject.GetComponent<GrabbedObject>();
-            Debug.Log(grabbedObjectScript.name + " is the thingy");
             if(!grabbedObjectScript)
             {
                 grabbedObject.transform.parent = transform;
@@ -45,6 +44,10 @@ public class Grabby : MonoBehaviour {
                 {
                     grabbedObject.transform.localPosition = Vector3.zero;
                 }
+            }
+            else
+            {
+                Debug.Log(grabbedObjectScript.name + " is the thingy");
             }
         }
     }
