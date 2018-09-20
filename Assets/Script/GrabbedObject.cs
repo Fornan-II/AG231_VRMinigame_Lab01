@@ -6,6 +6,7 @@ public class GrabbedObject : MonoBehaviour {
 
     protected Rigidbody _rb;
     public Vector3 myVelocity;
+    public float hitMultiplier = 1.5f;
 
     private void Start()
     {
@@ -42,10 +43,14 @@ public class GrabbedObject : MonoBehaviour {
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if(rb)
         {
-            //Vector3 newVelocity = Vector3.Project(rb.velocity, myVelocity) + myVelocity;
-            Vector3 newVelocity = myVelocity.normalized * rb.velocity.magnitude + myVelocity;
-            Debug.Log(newVelocity);
-            _rb.velocity = newVelocity;
+            Vector3 newVelocity = Vector3.Project(rb.velocity, myVelocity) + myVelocity;
+            if(newVelocity.z <= 0.0f) { return; }
+            newVelocity *= hitMultiplier;
+            //Vector3 newVelocity = myVelocity.normalized * rb.velocity.magnitude;// + myVelocity;
+            Debug.Log("Stuff is happening: " + newVelocity);
+            Debug.DrawRay(rb.position, newVelocity, Color.white, 100.0f);
+            //UnityEditor.EditorApplication.isPaused = true;
+            rb.velocity = newVelocity;
         }
     }
 }
