@@ -196,7 +196,7 @@ Prefab:
     - target: {fileID: 114085395987821862, guid: ab751fefdd122b442ba95d961b6dda21,
         type: 2}
       propertyPath: minimumForwardVelocity
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 54209399379407762, guid: ab751fefdd122b442ba95d961b6dda21,
         type: 2}
@@ -249,6 +249,11 @@ Prefab:
         type: 2}
       propertyPath: m_Constraints
       value: 124
+      objectReference: {fileID: 0}
+    - target: {fileID: 114529008449910336, guid: 543126f3d93bdd145a9da7b55d1a0480,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 543126f3d93bdd145a9da7b55d1a0480, type: 2}
@@ -1330,7 +1335,7 @@ Prefab:
     - target: {fileID: 114814657432788200, guid: 0e362d3791561934a8cf3034b98b3cb0,
         type: 2}
       propertyPath: hitMultiplier
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 54136549411920174, guid: 0e362d3791561934a8cf3034b98b3cb0,
         type: 2}
@@ -1673,6 +1678,7 @@ MonoBehaviour:
   paddle: {fileID: 1104088360}
   playerSpawn: {fileID: 175188195}
   paddleSpawn: {fileID: 1797273020}
+  timeLeft: 10000000
 --- !u!4 &1899840932
 Transform:
   m_ObjectHideFlags: 0

@@ -53,7 +53,7 @@ public class BallScript : MonoBehaviour {
                 {
                     zVel *= -1.0f;
                 }
-                _rb.AddForce(Vector3.forward * zVel);
+                _rb.velocity = new Vector3(_rb.velocity.x, _rb.velocity.y, zVel);
             }
         }
     }
