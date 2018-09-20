@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PointScript : MonoBehaviour {
     LineRenderer laserLine;
@@ -23,6 +24,11 @@ public class PointScript : MonoBehaviour {
             if (Physics.Raycast(rayOrigin, gameObject.transform.forward, out hit, 10))
             {
                 laserLine.SetPosition(1, hit.point);
+                Button b = hit.transform.GetComponent<Button>();
+                if(b)
+                {
+                    //b.
+                }
             }
             else
             {
