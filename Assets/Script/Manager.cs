@@ -21,32 +21,41 @@ public class Manager : MonoBehaviour {
     public GameObject paddle;
     public Transform playerSpawn;
     public Transform paddleSpawn;
-    float timeLeft = 20.0f;
+    float timeLeft = 10.0f;
     bool lose;
 
+    public void Start()
+    {
+        lose = false;
+        TimeText.text = "Time: " + timeLeft;
+    }
     public void Lost()
     {
-        Debug.Log("gameover");
         GOver.enabled = true;
-        ball.GetComponent<SphereCollider>().material = null;
-        lose = false;
-        // GameMan.gameObject.SetActive(true);
+        ball.GetComponent<SphereCollider>().material = null;        
     }
 
 
 
     private void Update()
     {
-        if(lose == false)
+        if (Grabby.startGame == true)
         {
-            Debug.Log("lose is false");
-            timeLeft -= Time.deltaTime;
-            TimeText.text = "Time: " + timeLeft;
-            if (timeLeft < 0)
+            if (lose == false)
             {
-                Debug.Log("lose");
-                Lost();
-                lose = true;
+                Debug.Log("lose is false");
+                timeLeft -= Time.deltaTime;
+                TimeText.text = "Time: " + timeLeft;
+                if (timeLeft < 0)
+                {
+                    Debug.Log("lose");
+                    Lost();
+                    lose = true;
+                }
+            }
+            else
+            {
+                TimeText.text = "Time: 0"; //bc it would end on a negative number
             }
         }
         
@@ -56,8 +65,7 @@ public class Manager : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                SceneManager.LoadScene("GameScene");
-                
+                SceneManager.LoadScene("GameScene");                
             }
         }
     }

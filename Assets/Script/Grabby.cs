@@ -14,9 +14,11 @@ public class Grabby : MonoBehaviour {
     protected GameObject grabbedObject;
     protected GrabbedObject grabbedObjectScript;
     protected bool isGrabbing = false;
+    public static bool startGame = false;
 
 	protected virtual void GrabObject()
     {
+        startGame = true;
         isGrabbing = true;
 
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, grabRadius, transform.forward, 0f, grabMask);
