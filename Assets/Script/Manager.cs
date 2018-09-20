@@ -4,6 +4,13 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/* 
+ * Dana LeMay, Maxen McCoy
+ * Lab01
+ * AG231
+ * Fall2018
+ */
+
 public class Manager : MonoBehaviour {
     public Canvas GameMan;
     public Text GOver;
