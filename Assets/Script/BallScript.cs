@@ -7,25 +7,19 @@ public class BallScript : MonoBehaviour {
     public GameObject spawnpt;
     public GameObject SceneManager;
     public float minimumForwardVelocity = 0.0f;
+    public float maximumVelocity = 5.0f;
     protected Rigidbody _rb;
     private void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
     }
-    /*private void Update()
-    {
-        if(Input.GetButtonDown("Fire1"))
-        {
-            gameObject.transform.position = spawnpt.transform.position;
-            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-        }
-    }*/
 
     private void FixedUpdate()
     {
-        
+        if(_rb.velocity.sqrMagnitude > maximumVelocity * maximumVelocity)
+        {
+            _rb.velocity = _rb.velocity.normalized * maximumVelocity;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
