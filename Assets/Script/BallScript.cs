@@ -30,7 +30,7 @@ public class BallScript : MonoBehaviour {
             if (Mathf.Abs(_rb.velocity.z) < minimumForwardVelocity)
             {
                 float zVel = minimumForwardVelocity;
-                if(_rb.velocity.z < 0.0f)
+                if(_rb.velocity.z <= 0.0f)
                 {
                     zVel *= -1.0f;
                 }
