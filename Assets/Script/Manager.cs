@@ -65,15 +65,18 @@ public class Manager : MonoBehaviour {
             }
         }
 
+        //Pausing
         if(Input.GetButtonDown("Fire3"))
         {
             if (PauseMenu.gameObject.activeSelf == false)
             {
                 PauseMenu.gameObject.SetActive(true);
+                Time.timeScale = 0.0f;
             }
             else// if (PauseMenu.gameObject.activeSelf == true)
             {
                 PauseMenu.gameObject.SetActive(false);
+                Time.timeScale = 1.0f;
             }
             
         }
@@ -94,6 +97,7 @@ public class Manager : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1"))
             {
+                Time.timeScale = 1.0f;
                 SceneManager.LoadScene("GameScene");                
             }
         }
