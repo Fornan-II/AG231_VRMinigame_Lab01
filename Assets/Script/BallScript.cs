@@ -9,10 +9,13 @@ public class BallScript : MonoBehaviour {
     public float minimumForwardVelocity = 0.0f;
     public float maximumVelocity = 5.0f;
     protected Rigidbody _rb;
+    protected Collider _col;
     public static bool startGame;
     private void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
+        _col = gameObject.GetComponent<Collider>();
+
         startGame = false;
     }
 
@@ -27,6 +30,20 @@ public class BallScript : MonoBehaviour {
         if(_rb.isKinematic == false)
         {
             startGame = true;
+        }
+
+        //Making sure the ball hits paddle, even when moving fast
+        RaycastHit[] rch = _rb.SweepTestAll(_rb.velocity, _rb.velocity.magnitude);
+        if(rch.Length > 0)
+        {
+            foreach(RaycastHit hit in rch)
+            {
+                GrabbedObject go = hit.transform.GetComponent<GrabbedObject>();
+                if(go)
+                {
+                    go.OnTriggerEnter(_col);
+                }
+            }
         }
     }
 
