@@ -9,9 +9,11 @@ public class BallScript : MonoBehaviour {
     public float minimumForwardVelocity = 0.0f;
     public float maximumVelocity = 5.0f;
     protected Rigidbody _rb;
+    public static bool startGame;
     private void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
+        startGame = false;
     }
 
     private void FixedUpdate()
@@ -19,6 +21,12 @@ public class BallScript : MonoBehaviour {
         if(_rb.velocity.sqrMagnitude > maximumVelocity * maximumVelocity)
         {
             _rb.velocity = _rb.velocity.normalized * maximumVelocity;
+        }
+
+        //starts game
+        if(_rb.isKinematic == false)
+        {
+            startGame = true;
         }
     }
 

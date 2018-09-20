@@ -16,14 +16,10 @@ public class Grabby : MonoBehaviour {
     protected bool isGrabbing = false;
     public static bool startGame;
 
-    private void Start()
-    {
-        startGame = false;
-    }
+    
 
     protected virtual void GrabObject()
     {
-        startGame = true;
         isGrabbing = true;
 
         RaycastHit[] hits = Physics.SphereCastAll(transform.position, grabRadius, transform.forward, 0f, grabMask);
@@ -69,8 +65,7 @@ public class Grabby : MonoBehaviour {
         {
             rb.isKinematic = false;
             rb.velocity = OVRInput.GetLocalControllerVelocity(thisController);
-            rb.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(thisController);
-            //This line above, MAKE SURE IT WORKS. @ 28:58 in the video, the guy used a different approach.
+            rb.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(thisController);            
         }
 
         if (grabbedObjectScript)
@@ -81,13 +76,15 @@ public class Grabby : MonoBehaviour {
         grabbedObject = null;
     }
 
-    // Update is called once per frame
+    
     protected virtual void FixedUpdate () {
+        //hacky start game
+        startGame = BallScript.startGame;
+
         if(!XRDevice.isPresent) { return; }
 
         float triggerValue = Input.GetAxis(GrabInput);
-
-        //Debug.Log(name + " velocity " + OVRInput.GetLocalControllerAngularVelocity(thisController));
+        
         if (!isGrabbing && triggerValue == 1)
         {
             GrabObject();
