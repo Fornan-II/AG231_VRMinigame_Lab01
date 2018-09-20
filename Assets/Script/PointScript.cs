@@ -27,7 +27,7 @@ public class PointScript : MonoBehaviour {
                 Button b = hit.transform.GetComponent<Button>();
                 if(b)
                 {
-                    //b.
+                    b.onClick.Invoke();
                 }
             }
             else
