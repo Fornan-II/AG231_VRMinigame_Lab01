@@ -16,12 +16,13 @@ public class Manager : MonoBehaviour {
     public Text GOver;
     public Text ScoreText;
     public Text TimeText;
+    public Image PauseMenu;
     public GameObject ball;
     public GameObject player;
     public GameObject paddle;
     public Transform playerSpawn;
     public Transform paddleSpawn;
-    public float timeLeft = 10.0f;
+    float timeLeft = 10.0f;
     bool lose;
 
     public void Start()
@@ -57,6 +58,19 @@ public class Manager : MonoBehaviour {
             {
                 TimeText.text = "Time: 0"; //bc it would end on a negative number
             }
+        }
+
+        if(Input.GetButton("Fire3"))
+        {
+            if (PauseMenu.gameObject.activeSelf == false)
+            {
+                PauseMenu.gameObject.SetActive(true);
+            }
+            if (PauseMenu.gameObject.activeSelf == true)
+            {
+                PauseMenu.gameObject.SetActive(false);
+            }
+            
         }
         
         ScoreText.text = "Score: " + BrickScript.score;
