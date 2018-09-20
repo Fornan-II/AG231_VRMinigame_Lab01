@@ -203,6 +203,11 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114085395987821862, guid: ab751fefdd122b442ba95d961b6dda21,
+        type: 2}
+      propertyPath: maximumVelocity
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab751fefdd122b442ba95d961b6dda21, type: 2}
   m_IsPrefabAsset: 0
@@ -1372,7 +1377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1663778381
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1744,7 +1749,7 @@ MonoBehaviour:
   GOver: {fileID: 579821341}
   ScoreText: {fileID: 801311653}
   TimeText: {fileID: 248201347}
-  PauseMenu: {fileID: 0}
+  PauseMenu: {fileID: 1663778382}
   ball: {fileID: 1415059328}
   player: {fileID: 967689701}
   paddle: {fileID: 1104088360}
