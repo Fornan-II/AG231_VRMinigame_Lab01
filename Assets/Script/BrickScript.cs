@@ -34,4 +34,10 @@ public class BrickScript : MonoBehaviour {
     {
         score = totalBrickCount - bricksRemaining;
     }
+
+    public static void ResetBrickCount()
+    {
+        bricksRemaining = 0;
+        totalBrickCount = 0;
+    }
 }

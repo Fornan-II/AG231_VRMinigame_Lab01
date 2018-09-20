@@ -22,7 +22,9 @@ public class Manager : MonoBehaviour {
     public GameObject paddle;
     public Transform playerSpawn;
     public Transform paddleSpawn;
-    float timeLeft = 10.0f;
+    public Text pause;
+    public Text pausedGOver;
+    public float timeLeft = 10.0f;
     bool lose;
     bool paused;
     protected bool doRestart;
@@ -36,7 +38,12 @@ public class Manager : MonoBehaviour {
     public void Lost()
     {
         GOver.enabled = true;
-        ball.GetComponent<SphereCollider>().material = null;        
+        lose = true;
+        ball.GetComponent<SphereCollider>().material = null;
+
+        PauseMenu.gameObject.SetActive(true);
+        pausedGOver.gameObject.SetActive(true);
+        pause.gameObject.SetActive(false);
     }
 
 
@@ -67,19 +74,25 @@ public class Manager : MonoBehaviour {
         }
 
         //Pausing
-        if(Input.GetButtonDown("Fire3"))
+        if (lose == false)
         {
-            if (PauseMenu.gameObject.activeSelf == false)
+            if (Input.GetButtonDown("Fire1"))
             {
-                PauseMenu.gameObject.SetActive(true);
-                Time.timeScale = 0.0f;
+                if (PauseMenu.gameObject.activeSelf == false)
+                {
+                    PauseMenu.gameObject.SetActive(true);
+
+                    pausedGOver.gameObject.SetActive(false);
+                    pause.gameObject.SetActive(true);
+
+                    Time.timeScale = 0.0f;
+                }
+                else// if (PauseMenu.gameObject.activeSelf == true)
+                {
+                    PauseMenu.gameObject.SetActive(false);
+                    Time.timeScale = 1.0f;
+                }
             }
-            else// if (PauseMenu.gameObject.activeSelf == true)
-            {
-                PauseMenu.gameObject.SetActive(false);
-                Time.timeScale = 1.0f;
-            }
-            
         }
 
         if (PauseMenu.gameObject.activeSelf == true)
@@ -92,13 +105,13 @@ public class Manager : MonoBehaviour {
         }
         
         ScoreText.text = "Score: " + BrickScript.score;
-
-        //change this to raycast
+                
         if (lose == true)
         {
-            if (Input.GetButtonDown("Fire1") || doRestart)
+            if (doRestart) //Input.GetButtonDown("Fire1") || 
             {
                 Time.timeScale = 1.0f;
+                BrickScript.ResetBrickCount();
                 SceneManager.LoadScene("GameScene");                
             }
         }
@@ -107,6 +120,7 @@ public class Manager : MonoBehaviour {
     public void RestartGame()
     {
         Debug.Log("Restarto");
+        lose = true;
         doRestart = true;
     }
 
