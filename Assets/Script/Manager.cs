@@ -60,13 +60,13 @@ public class Manager : MonoBehaviour {
             }
         }
 
-        if(Input.GetButton("Fire3"))
+        if(Input.GetButtonDown("Fire3"))
         {
             if (PauseMenu.gameObject.activeSelf == false)
             {
                 PauseMenu.gameObject.SetActive(true);
             }
-            if (PauseMenu.gameObject.activeSelf == true)
+            else// if (PauseMenu.gameObject.activeSelf == true)
             {
                 PauseMenu.gameObject.SetActive(false);
             }
