@@ -15,25 +15,41 @@ public class Manager : MonoBehaviour {
     public Canvas GameMan;
     public Text GOver;
     public Text ScoreText;
+    public Text TimeText;
     public GameObject ball;
     public GameObject player;
     public GameObject paddle;
     public Transform playerSpawn;
     public Transform paddleSpawn;
-    
+    float timeLeft = 20.0f;
+    bool lose;
 
     public void Lost()
     {
         Debug.Log("gameover");
         GOver.enabled = true;
         ball.GetComponent<SphereCollider>().material = null;
-       // GameMan.gameObject.SetActive(true);
+        lose = false;
+        // GameMan.gameObject.SetActive(true);
     }
 
 
 
     private void Update()
     {
+        if(lose == false)
+        {
+            Debug.Log("lose is false");
+            timeLeft -= Time.deltaTime;
+            TimeText.text = "Time: " + timeLeft;
+            if (timeLeft < 0)
+            {
+                Debug.Log("lose");
+                Lost();
+                lose = true;
+            }
+        }
+        
         ScoreText.text = "Score: " + BrickScript.score;
 
         if (GOver.enabled == true)
@@ -41,7 +57,15 @@ public class Manager : MonoBehaviour {
             if (Input.GetButtonDown("Fire1"))
             {
                 SceneManager.LoadScene("GameScene");
-                /*GOver.enabled = false;//game over text disabled
+                
+            }
+        }
+    }
+
+}
+
+
+/*GOver.enabled = false;//game over text disabled
 
                 // spawning ball 
                 BallScript b = ball.GetComponent<BallScript>();         
@@ -62,8 +86,3 @@ public class Manager : MonoBehaviour {
 
                 //score reset
                 ScoreText.text = "Score: " + BrickScript.score;*/
-            }
-        }
-    }
-
-}
