@@ -42,7 +42,8 @@ public class GrabbedObject : MonoBehaviour {
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if(rb)
         {
-            Vector3 newVelocity = Vector3.Project(rb.velocity, myVelocity) + myVelocity;
+            //Vector3 newVelocity = Vector3.Project(rb.velocity, myVelocity) + myVelocity;
+            Vector3 newVelocity = myVelocity.normalized * rb.velocity.magnitude + myVelocity;
             Debug.Log(newVelocity);
             _rb.velocity = newVelocity;
         }
