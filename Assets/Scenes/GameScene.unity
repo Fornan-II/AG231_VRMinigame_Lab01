@@ -203,6 +203,11 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114085395987821862, guid: ab751fefdd122b442ba95d961b6dda21,
+        type: 2}
+      propertyPath: maximumVelocity
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab751fefdd122b442ba95d961b6dda21, type: 2}
   m_IsPrefabAsset: 0
