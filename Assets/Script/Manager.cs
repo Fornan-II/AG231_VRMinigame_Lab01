@@ -93,7 +93,7 @@ public class Manager : MonoBehaviour {
         ScoreText.text = "Score: " + BrickScript.score;
 
         //fix this
-        if (GOver.enabled == true)
+        if (lose == true)
         {
             if (Input.GetButtonDown("Fire1"))
             {
