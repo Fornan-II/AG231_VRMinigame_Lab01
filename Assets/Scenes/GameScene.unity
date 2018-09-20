@@ -196,7 +196,7 @@ Prefab:
     - target: {fileID: 114085395987821862, guid: ab751fefdd122b442ba95d961b6dda21,
         type: 2}
       propertyPath: minimumForwardVelocity
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 54209399379407762, guid: ab751fefdd122b442ba95d961b6dda21,
         type: 2}
@@ -1326,6 +1326,11 @@ Prefab:
     - target: {fileID: 4217233044595932, guid: 0e362d3791561934a8cf3034b98b3cb0, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814657432788200, guid: 0e362d3791561934a8cf3034b98b3cb0,
+        type: 2}
+      propertyPath: hitMultiplier
+      value: 1.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e362d3791561934a8cf3034b98b3cb0, type: 2}

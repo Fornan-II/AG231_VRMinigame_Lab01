@@ -25,18 +25,7 @@ public class BallScript : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if(_rb && minimumForwardVelocity != 0.0f)
-        {
-            if (Mathf.Abs(_rb.velocity.z) < minimumForwardVelocity)
-            {
-                float zVel = minimumForwardVelocity;
-                if(_rb.velocity.z <= 0.0f)
-                {
-                    zVel *= -1.0f;
-                }
-                _rb.velocity = new Vector3(_rb.velocity.x, _rb.velocity.y, zVel);
-            }
-        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -52,4 +41,20 @@ public class BallScript : MonoBehaviour {
         }
     }
 
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (_rb && minimumForwardVelocity != 0.0f)
+        {
+            if (Mathf.Abs(_rb.velocity.z) < minimumForwardVelocity)
+            {
+                float zVel = minimumForwardVelocity;
+                if (_rb.velocity.z <= 0.0f)
+                {
+                    zVel *= -1.0f;
+                }
+                _rb.AddForce(Vector3.forward * zVel);
+            }
+        }
+    }
 }

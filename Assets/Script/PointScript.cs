@@ -13,6 +13,7 @@ public class PointScript : MonoBehaviour {
 	void Update () {
         if (Input.GetButton("Oculus_GearVR_RIndexTrigger"))
         {
+            Debug.Log("BUTTON PUSHED");
             RaycastHit hit;
             laserLine.enabled = true;
 

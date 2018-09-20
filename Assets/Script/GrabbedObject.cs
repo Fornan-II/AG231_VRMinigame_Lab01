@@ -39,7 +39,7 @@ public class GrabbedObject : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name + " collided");
+        //Debug.Log(other.name + " collided");
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if(rb)
         {
@@ -47,7 +47,7 @@ public class GrabbedObject : MonoBehaviour {
             if(newVelocity.z <= 0.0f) { return; }
             newVelocity *= hitMultiplier;
             //Vector3 newVelocity = myVelocity.normalized * rb.velocity.magnitude;// + myVelocity;
-            Debug.Log("Stuff is happening: " + newVelocity);
+            //Debug.Log("Stuff is happening: " + newVelocity);
             Debug.DrawRay(rb.position, newVelocity, Color.white, 100.0f);
             //UnityEditor.EditorApplication.isPaused = true;
             rb.velocity = newVelocity;
