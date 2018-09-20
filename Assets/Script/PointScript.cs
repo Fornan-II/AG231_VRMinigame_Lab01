@@ -23,6 +23,7 @@ public class PointScript : MonoBehaviour {
 
             if (Physics.Raycast(rayOrigin, gameObject.transform.forward, out hit, 10))
             {
+                Debug.Log("Pointing at " + hit.transform.name);
                 laserLine.SetPosition(1, hit.point);
                 Button b = hit.transform.GetComponent<Button>();
                 if(b)
