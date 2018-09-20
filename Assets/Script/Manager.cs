@@ -25,6 +25,7 @@ public class Manager : MonoBehaviour {
     float timeLeft = 10.0f;
     bool lose;
     bool paused;
+    protected bool doRestart;
 
     public void Start()
     {
@@ -95,12 +96,24 @@ public class Manager : MonoBehaviour {
         //change this to raycast
         if (lose == true)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") || doRestart)
             {
                 Time.timeScale = 1.0f;
                 SceneManager.LoadScene("GameScene");                
             }
         }
+    }
+
+    public void RestartGame()
+    {
+        Debug.Log("Restarto");
+        doRestart = true;
+    }
+
+    public void EndGame()
+    {
+        Debug.Log("Quito");
+        Application.Quit();
     }
 
 }
