@@ -14,9 +14,14 @@ public class Grabby : MonoBehaviour {
     protected GameObject grabbedObject;
     protected GrabbedObject grabbedObjectScript;
     protected bool isGrabbing = false;
-    public static bool startGame = false;
+    public static bool startGame;
 
-	protected virtual void GrabObject()
+    private void Start()
+    {
+        startGame = false;
+    }
+
+    protected virtual void GrabObject()
     {
         startGame = true;
         isGrabbing = true;

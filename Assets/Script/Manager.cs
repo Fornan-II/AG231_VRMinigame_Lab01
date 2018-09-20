@@ -24,11 +24,13 @@ public class Manager : MonoBehaviour {
     public Transform paddleSpawn;
     float timeLeft = 10.0f;
     bool lose;
+    bool paused;
 
     public void Start()
     {
         lose = false;
         TimeText.text = "Time: " + timeLeft;
+        paused = false;
     }
     public void Lost()
     {
@@ -42,21 +44,24 @@ public class Manager : MonoBehaviour {
     {
         if (Grabby.startGame == true)
         {
-            if (lose == false)
+            if (paused == false)
             {
-                Debug.Log("lose is false");
-                timeLeft -= Time.deltaTime;
-                TimeText.text = "Time: " + timeLeft;
-                if (timeLeft < 0)
+                if (lose == false)
                 {
-                    Debug.Log("lose");
-                    Lost();
-                    lose = true;
+                    Debug.Log("lose is false");
+                    timeLeft -= Time.deltaTime;
+                    TimeText.text = "Time: " + timeLeft;
+                    if (timeLeft < 0)
+                    {
+                        Debug.Log("lose");
+                        Lost();
+                        lose = true;
+                    }
                 }
-            }
-            else
-            {
-                TimeText.text = "Time: 0"; //bc it would end on a negative number
+                else
+                {
+                    TimeText.text = "Time: 0"; //bc it would end on a negative number
+                }
             }
         }
 
@@ -72,9 +77,19 @@ public class Manager : MonoBehaviour {
             }
             
         }
+
+        if (PauseMenu.gameObject.activeSelf == true)
+        {
+            paused = true;
+        }
+        else
+        {
+            paused = false;
+        }
         
         ScoreText.text = "Score: " + BrickScript.score;
 
+        //fix this
         if (GOver.enabled == true)
         {
             if (Input.GetButtonDown("Fire1"))
