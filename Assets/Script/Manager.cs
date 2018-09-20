@@ -21,7 +21,7 @@ public class Manager : MonoBehaviour {
     public GameObject paddle;
     public Transform playerSpawn;
     public Transform paddleSpawn;
-    float timeLeft = 10.0f;
+    public float timeLeft = 10.0f;
     bool lose;
 
     public void Start()

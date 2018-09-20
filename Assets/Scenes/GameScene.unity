@@ -1330,7 +1330,12 @@ Prefab:
     - target: {fileID: 114814657432788200, guid: 0e362d3791561934a8cf3034b98b3cb0,
         type: 2}
       propertyPath: hitMultiplier
-      value: 1.7
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 54136549411920174, guid: 0e362d3791561934a8cf3034b98b3cb0,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e362d3791561934a8cf3034b98b3cb0, type: 2}

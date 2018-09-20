@@ -11,7 +11,7 @@ public class PointScript : MonoBehaviour {
     }	
 	
 	void Update () {
-        if (Input.GetButton("Oculus_GearVR_RIndexTrigger"))
+        if (Input.GetButton("Fire2"))
         {
             Debug.Log("BUTTON PUSHED");
             RaycastHit hit;
