@@ -1326,7 +1326,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Grab the Ball To Start
+  m_Text: Grab the Ball to Start
 --- !u!222 &401046780
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3530,7 +3530,7 @@ GameObject:
   - component: {fileID: 1368367526}
   - component: {fileID: 1368367525}
   m_Layer: 5
-  m_Name: quitButton
+  m_Name: quitButtonS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
