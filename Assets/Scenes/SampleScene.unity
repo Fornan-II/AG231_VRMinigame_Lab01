@@ -394,8 +394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b342a6c798a244fa79e1741f905522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  maxV: 10
+  myHolder: {fileID: 0}
+  myVelocity: {x: 0, y: 0, z: 0}
+  hitMultiplier: 1.5
 --- !u!1 &925364833
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +602,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpt: {fileID: 653017278}
+  SceneManager: {fileID: 0}
+  minimumForwardVelocity: 0
+  maximumVelocity: 5
 --- !u!1001 &1585550249
 Prefab:
   m_ObjectHideFlags: 0
@@ -640,6 +644,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114910113655404362, guid: 543126f3d93bdd145a9da7b55d1a0480,
+        type: 2}
+      propertyPath: hapticAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c685e182c6644424a94a825a5d4c6e6a, type: 3}
+    - target: {fileID: 114184219112241940, guid: 543126f3d93bdd145a9da7b55d1a0480,
+        type: 2}
+      propertyPath: hapticAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c685e182c6644424a94a825a5d4c6e6a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 543126f3d93bdd145a9da7b55d1a0480, type: 2}
   m_IsPrefabAsset: 0

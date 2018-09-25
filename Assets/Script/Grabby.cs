@@ -16,7 +16,7 @@ public class Grabby : MonoBehaviour {
     protected bool isGrabbing = false;
     public static bool startGame;
 
-    
+    public AudioClip hapticAudioClip;
 
     protected virtual void GrabObject()
     {
@@ -106,6 +106,14 @@ public class Grabby : MonoBehaviour {
     {
         if(!XRDevice.isPresent) { return; }
 
-        //OVRHaptics.
+        OVRHapticsClip hapticsClip = new OVRHapticsClip(hapticAudioClip);
+        if(thisController == OVRInput.Controller.LTouch)
+        {
+            OVRHaptics.LeftChannel.Preempt(hapticsClip);
+        }
+        else if (thisController == OVRInput.Controller.RTouch)
+        {
+            OVRHaptics.RightChannel.Preempt(hapticsClip);
+        }
     }
 }
