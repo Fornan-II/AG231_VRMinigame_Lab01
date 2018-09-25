@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GrabbedObject : MonoBehaviour {
 
+    [HideInInspector]
     public Grabby myHolder = null;
     protected Rigidbody _rb;
     public Vector3 myVelocity;
