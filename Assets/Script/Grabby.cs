@@ -42,13 +42,14 @@ public class Grabby : MonoBehaviour {
             }
 
             grabbedObjectScript = grabbedObject.GetComponent<GrabbedObject>();
-            if(/*!grabbedObjectScript*/true)
+            if(grabbedObjectScript)
             {
-                grabbedObject.transform.parent = transform;
-                if (centerGrabbedObject)
-                {
-                    grabbedObject.transform.localPosition = Vector3.zero;
-                }
+                grabbedObjectScript.myHolder = this;
+            }
+            grabbedObject.transform.parent = transform;
+            if (centerGrabbedObject)
+            {
+                grabbedObject.transform.localPosition = Vector3.zero;
             }
         }
     }
@@ -70,6 +71,7 @@ public class Grabby : MonoBehaviour {
 
         if (grabbedObjectScript)
         {
+            grabbedObjectScript.myHolder = null;
             grabbedObjectScript = null;
         }
 
@@ -99,4 +101,11 @@ public class Grabby : MonoBehaviour {
             grabbedObjectScript.myVelocity = OVRInput.GetLocalControllerVelocity(thisController);
         }
 	}
+
+    public void Vibrate()
+    {
+        if(!XRDevice.isPresent) { return; }
+
+        //OVRHaptics.
+    }
 }

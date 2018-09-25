@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GrabbedObject : MonoBehaviour {
 
+    public Grabby myHolder = null;
     protected Rigidbody _rb;
     public Vector3 myVelocity;
     public float hitMultiplier = 1.5f;
@@ -51,6 +52,8 @@ public class GrabbedObject : MonoBehaviour {
             Debug.DrawRay(rb.position, newVelocity, Color.white, 100.0f);
             //UnityEditor.EditorApplication.isPaused = true;
             rb.velocity = newVelocity;
+
+            myHolder.Vibrate();
         }
     }
 }
