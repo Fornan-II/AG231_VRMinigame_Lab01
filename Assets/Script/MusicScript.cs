@@ -5,6 +5,10 @@ using UnityEngine;
 public class MusicScript : MonoBehaviour {
 
 	void Start () {
+        if(FindObjectOfType<MusicScript>())
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(gameObject);
     }
 	

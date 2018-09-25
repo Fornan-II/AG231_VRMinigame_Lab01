@@ -37,7 +37,7 @@ public class Manager : MonoBehaviour {
         paused = false;
 
         TimeText.text = "Time: " + timeLeft;
-        HighScoreText.text = PlayerPrefs.GetInt("Highscore", 0).ToString();
+        HighScoreText.text = PlayerPrefs.GetInt("Highscore", 0).ToString(); //highscore
 
         StartMenu.gameObject.SetActive(true);
     }
