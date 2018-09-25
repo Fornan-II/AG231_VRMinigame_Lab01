@@ -592,6 +592,16 @@ Prefab:
       propertyPath: m_ForceIntoRT
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114184219112241940, guid: 543126f3d93bdd145a9da7b55d1a0480,
+        type: 2}
+      propertyPath: hapticAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 26d1725624fafc644aee702a11788f14, type: 3}
+    - target: {fileID: 114910113655404362, guid: 543126f3d93bdd145a9da7b55d1a0480,
+        type: 2}
+      propertyPath: hapticAudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 26d1725624fafc644aee702a11788f14, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 543126f3d93bdd145a9da7b55d1a0480, type: 2}
   m_IsPrefabAsset: 0

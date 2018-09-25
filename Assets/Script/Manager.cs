@@ -62,7 +62,7 @@ public class Manager : MonoBehaviour {
             {
                 if (lose == false)
                 {
-                    Debug.Log("lose is false");
+                    //Debug.Log("lose is false");
                     timeLeft -= Time.deltaTime;
                     TimeText.text = "Time: " + timeLeft;
                     if (timeLeft < 0)

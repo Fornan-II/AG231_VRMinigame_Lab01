@@ -5,7 +5,9 @@ using UnityEngine;
 public class MusicScript : MonoBehaviour {
 
 	void Start () {
-        if(FindObjectOfType<MusicScript>())
+        MusicScript[] ms = FindObjectsOfType<MusicScript>();
+
+        if (ms.Length > 1)
         {
             Destroy(gameObject);
         }
