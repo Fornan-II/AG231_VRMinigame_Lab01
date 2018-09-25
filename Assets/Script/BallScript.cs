@@ -33,7 +33,7 @@ public class BallScript : MonoBehaviour {
         }
 
         //Making sure the ball hits paddle, even when moving fast
-        RaycastHit[] rch = _rb.SweepTestAll(_rb.velocity, _rb.velocity.magnitude);
+        RaycastHit[] rch = _rb.SweepTestAll(_rb.velocity, _rb.velocity.magnitude * Time.fixedDeltaTime);
         if(rch.Length > 0)
         {
             foreach(RaycastHit hit in rch)
