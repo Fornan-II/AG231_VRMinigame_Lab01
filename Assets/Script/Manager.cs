@@ -15,6 +15,7 @@ public class Manager : MonoBehaviour {
     public Canvas GameMan;
     public Text GOver;
     public Text ScoreText;
+    public Text HighScoreText;
     public Text TimeText;
     public Image StartMenu;
     public Image PauseMenu;
@@ -33,8 +34,11 @@ public class Manager : MonoBehaviour {
     public void Start()
     {
         lose = false;
-        TimeText.text = "Time: " + timeLeft;
         paused = false;
+
+        TimeText.text = "Time: " + timeLeft;
+        HighScoreText.text = PlayerPrefs.GetInt("Highscore", 0).ToString();
+
         StartMenu.gameObject.SetActive(true);
     }
     public void Lost()
@@ -112,8 +116,16 @@ public class Manager : MonoBehaviour {
             paused = false;
         }
         
+        //updating score
         ScoreText.text = "Score: " + BrickScript.score;
-                
+
+        //updating highscore
+        if (BrickScript.score > PlayerPrefs.GetInt("Highscore", 0))
+        {
+            PlayerPrefs.GetInt("Highscore", BrickScript.score);
+        }
+
+        //restart script
         if (lose == true)
         {
             if (doRestart)
