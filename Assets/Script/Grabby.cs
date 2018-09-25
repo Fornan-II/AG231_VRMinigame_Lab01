@@ -81,6 +81,7 @@ public class Grabby : MonoBehaviour {
     
     protected virtual void FixedUpdate () {
         //hacky start game
+        Vibrate();
         startGame = BallScript.startGame;
 
         if(!XRDevice.isPresent) { return; }
@@ -97,23 +98,28 @@ public class Grabby : MonoBehaviour {
 
         if(grabbedObjectScript)
         {
-            //grabbedObjectScript.SyncWith(transform, OVRInput.GetLocalControllerVelocity(thisController));
             grabbedObjectScript.myVelocity = OVRInput.GetLocalControllerVelocity(thisController);
         }
 	}
 
     public void Vibrate()
     {
+        Debug.Log("Vibrate");
         if(!XRDevice.isPresent) { return; }
-
+        Debug.Log("Gonna vibrate");
         OVRHapticsClip hapticsClip = new OVRHapticsClip(hapticAudioClip);
         if(thisController == OVRInput.Controller.LTouch)
         {
-            OVRHaptics.LeftChannel.Preempt(hapticsClip);
+            Debug.Log("Left " + hapticAudioClip.name);
+            //OVRHaptics.LeftChannel.Preempt(hapticsClip);
+            byte[] noise = { 255 };
+            OVRHaptics.Channels[1].Preempt(new OVRHapticsClip(noise, 1));
         }
         else if (thisController == OVRInput.Controller.RTouch)
         {
+            Debug.Log("Right " + hapticAudioClip.name);
             OVRHaptics.RightChannel.Preempt(hapticsClip);
+            
         }
     }
 }
