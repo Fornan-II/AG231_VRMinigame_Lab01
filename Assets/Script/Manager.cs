@@ -16,6 +16,7 @@ public class Manager : MonoBehaviour {
     public Text GOver;
     public Text ScoreText;
     public Text TimeText;
+    public Image StartMenu;
     public Image PauseMenu;
     public GameObject ball;
     public GameObject player;
@@ -34,6 +35,7 @@ public class Manager : MonoBehaviour {
         lose = false;
         TimeText.text = "Time: " + timeLeft;
         paused = false;
+        StartMenu.gameObject.SetActive(true);
     }
     public void Lost()
     {
@@ -49,8 +51,8 @@ public class Manager : MonoBehaviour {
 
 
     private void Update()
-    {
-        if (Grabby.startGame == true)
+    {   //timer
+        if (Grabby.startGame == true) //ballscript, grabby, manager
         {
             if (paused == false)
             {
@@ -73,8 +75,14 @@ public class Manager : MonoBehaviour {
             }
         }
 
+        //start menu
+        if(Grabby.startGame == true)
+        {
+            StartMenu.gameObject.SetActive(false);            
+        }
+
         //Pausing
-        if (lose == false)
+        if (lose == false && Grabby.startGame == true)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -108,7 +116,7 @@ public class Manager : MonoBehaviour {
                 
         if (lose == true)
         {
-            if (doRestart) //Input.GetButtonDown("Fire1") || 
+            if (doRestart)
             {
                 Time.timeScale = 1.0f;
                 BrickScript.ResetBrickCount();
