@@ -10,8 +10,10 @@ public class BrickScript : MonoBehaviour {
     public float particleLifeTime;
     public static int score;
 
+    AudioSource glass;
     protected virtual void Start()
     {
+        glass = GetComponent<AudioSource>();
         totalBrickCount++;
         bricksRemaining++;
     }
@@ -22,6 +24,7 @@ public class BrickScript : MonoBehaviour {
         {
             if (destroyParticlePrefab)
             {
+                glass.Play(0);
                 GameObject particle = Instantiate(destroyParticlePrefab, collision.transform.position, collision.transform.rotation);
                 Destroy(particle, particleLifeTime);
             }
