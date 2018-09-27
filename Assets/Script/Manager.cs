@@ -31,6 +31,8 @@ public class Manager : MonoBehaviour {
     bool paused;
     protected bool doRestart;
 
+    public static bool PAUSE_GAME = false;
+
     public void Start()
     {
         lose = false;
@@ -86,7 +88,7 @@ public class Manager : MonoBehaviour {
         }
 
         //Pausing
-        if (lose == false && Grabby.startGame == true)
+        if ((lose == false && Grabby.startGame == true) || PAUSE_GAME)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -103,6 +105,7 @@ public class Manager : MonoBehaviour {
                 {
                     PauseMenu.gameObject.SetActive(false);
                     Time.timeScale = 1.0f;
+                    PAUSE_GAME = false;
                 }
             }
         }

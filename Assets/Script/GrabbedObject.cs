@@ -72,7 +72,13 @@ public class GrabbedObject : MonoBehaviour {
             hit.Play(0);
 
             Vector3 newVelocity = Vector3.Project(rb.velocity, myVelocity) + myVelocity;
-            if(newVelocity.z <= 0.0f) { Debug.Log("return"); return; }
+            if(newVelocity.z <= 0.0f)
+            {
+                Debug.Log("return");
+                //UnityEditor.EditorApplication.isPaused = true;
+                //Manager.PAUSE_GAME = true;
+                return;
+            }
             newVelocity *= hitMultiplier;
             //Vector3 newVelocity = myVelocity.normalized * rb.velocity.magnitude;// + myVelocity;
             //Debug.Log("Stuff is happening: " + newVelocity);
