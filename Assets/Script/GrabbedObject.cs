@@ -19,9 +19,20 @@ public class GrabbedObject : MonoBehaviour {
 
     private void Update()
     {
-        if(myVelocity.magnitude > 3)
+        ulong delay = (ulong)10;
+        if ((myVelocity.magnitude > 1) && (myVelocity.magnitude <= 3))
         {
-            ulong delay = (ulong)10;
+            woosh.volume = 0.2f;
+            woosh.Play(delay);
+        }
+        if(myVelocity.magnitude > 3 && myVelocity.magnitude <= 5)
+        {
+            woosh.volume = 0.5f;
+            woosh.Play(delay);
+        }
+        if(myVelocity.magnitude >5)
+        {
+            woosh.volume = 1f;
             woosh.Play(delay);
         }
     }
