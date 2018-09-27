@@ -9,10 +9,20 @@ public class GrabbedObject : MonoBehaviour {
     protected Rigidbody _rb;
     public Vector3 myVelocity;
     public float hitMultiplier = 1.5f;
+    public AudioSource woosh;
+    public AudioSource hit;
 
     private void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if(myVelocity.magnitude > 3)
+        {
+            woosh.Play(0);
+        }
     }
 
     //public void SyncWith(Transform holder, Vector3 velocity)
@@ -21,7 +31,7 @@ public class GrabbedObject : MonoBehaviour {
     //    {
     //        Vector3 moveVector = holder.position - transform.position;
     //        RaycastHit[] allHits = _rb.SweepTestAll(moveVector, moveVector.magnitude, QueryTriggerInteraction.Ignore);
-            
+
     //        foreach (RaycastHit rch in allHits)
     //        {
     //            if (rch.rigidbody)
@@ -45,6 +55,8 @@ public class GrabbedObject : MonoBehaviour {
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if(rb)
         {
+            hit.Play(0);
+
             Vector3 newVelocity = Vector3.Project(rb.velocity, myVelocity) + myVelocity;
             if(newVelocity.z <= 0.0f) { return; }
             newVelocity *= hitMultiplier;
