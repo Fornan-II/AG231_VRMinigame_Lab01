@@ -15,6 +15,7 @@ public class GrabbedObject : MonoBehaviour {
     private void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
+        hit.volume = 1;
     }
 
     private void Update()
@@ -67,6 +68,7 @@ public class GrabbedObject : MonoBehaviour {
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if(rb)
         {
+            
             hit.Play(0);
 
             Vector3 newVelocity = Vector3.Project(rb.velocity, myVelocity) + myVelocity;
