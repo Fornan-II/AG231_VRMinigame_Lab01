@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4743579997136972}
   m_Layer: 0
-  m_Name: AllBricks
+  m_Name: AllBricks 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
