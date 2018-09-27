@@ -15,13 +15,25 @@ public class GrabbedObject : MonoBehaviour {
     private void Start()
     {
         _rb = gameObject.GetComponent<Rigidbody>();
+        hit.volume = 1;
     }
 
     private void Update()
     {
-        if(myVelocity.magnitude > 3)
+        ulong delay = (ulong)10;
+        if ((myVelocity.magnitude > 1) && (myVelocity.magnitude <= 3))
         {
-            ulong delay = (ulong)10;
+            woosh.volume = 0.2f;
+            woosh.Play(delay);
+        }
+        if(myVelocity.magnitude > 3 && myVelocity.magnitude <= 5)
+        {
+            woosh.volume = 0.5f;
+            woosh.Play(delay);
+        }
+        if(myVelocity.magnitude >5)
+        {
+            woosh.volume = 1f;
             woosh.Play(delay);
         }
     }
@@ -56,6 +68,7 @@ public class GrabbedObject : MonoBehaviour {
         Rigidbody rb = other.GetComponent<Rigidbody>();
         if(rb)
         {
+            
             hit.Play(0);
 
             Vector3 newVelocity = Vector3.Project(rb.velocity, myVelocity) + myVelocity;
