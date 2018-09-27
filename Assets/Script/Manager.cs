@@ -130,6 +130,11 @@ public class Manager : MonoBehaviour {
         {
             if (doRestart)
             {
+                if (ScoreManager.HighScore < BrickScript.score)
+                {
+                    ScoreManager.HighScore = BrickScript.score;
+                    ScoreManager.SaveScore();
+                }
                 Time.timeScale = 1.0f;
                 BrickScript.ResetBrickCount();
                 SceneManager.LoadScene("GameScene");                
