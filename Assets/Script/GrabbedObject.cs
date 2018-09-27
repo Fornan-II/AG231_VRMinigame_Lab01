@@ -71,22 +71,21 @@ public class GrabbedObject : MonoBehaviour {
             
             hit.Play(0);
 
-            Vector3 newVelocity = Vector3.Project(rb.velocity, myVelocity) + myVelocity;
-            if(newVelocity.z <= 0.0f)
+            Vector3 newVelocity = Vector3.Project(rb.velocity, myVelocity);
+            if(newVelocity.z >= 0.0f)
             {
                 Debug.Log("return");
                 //UnityEditor.EditorApplication.isPaused = true;
                 //Manager.PAUSE_GAME = true;
                 return;
             }
+            
+            newVelocity += myVelocity;
             newVelocity *= hitMultiplier;
-            //Vector3 newVelocity = myVelocity.normalized * rb.velocity.magnitude;// + myVelocity;
             //Debug.Log("Stuff is happening: " + newVelocity);
             Debug.DrawRay(rb.position, newVelocity, Color.white, 100.0f);
             //UnityEditor.EditorApplication.isPaused = true;
             rb.velocity = newVelocity;
-
-            if (myHolder) { myHolder.Vibrate(); };
         }
     }
 }
