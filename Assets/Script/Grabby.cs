@@ -81,7 +81,7 @@ public class Grabby : MonoBehaviour {
     
     protected virtual void FixedUpdate () {
         //hacky start game
-        Vibrate();
+        //Vibrate();
         startGame = BallScript.startGame;
 
         if(!XRDevice.isPresent) { return; }
