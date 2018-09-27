@@ -21,7 +21,8 @@ public class GrabbedObject : MonoBehaviour {
     {
         if(myVelocity.magnitude > 3)
         {
-            woosh.Play(0);
+            ulong delay = (ulong)10;
+            woosh.Play(delay);
         }
     }
 
@@ -66,7 +67,7 @@ public class GrabbedObject : MonoBehaviour {
             //UnityEditor.EditorApplication.isPaused = true;
             rb.velocity = newVelocity;
 
-            myHolder.Vibrate();
+            if (myHolder) { myHolder.Vibrate(); };
         }
     }
 }
