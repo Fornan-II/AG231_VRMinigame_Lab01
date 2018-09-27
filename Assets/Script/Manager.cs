@@ -15,7 +15,6 @@ public class Manager : MonoBehaviour {
     public Canvas GameMan;
     public Text GOver;
     public Text ScoreText;
-    public Text HighScoreText;
     public Text TimeText;
     public Image StartMenu;
     public Image PauseMenu;
@@ -30,6 +29,7 @@ public class Manager : MonoBehaviour {
     bool lose;
     bool paused;
     protected bool doRestart;
+    
 
     public static bool PAUSE_GAME = false;
 
@@ -39,7 +39,6 @@ public class Manager : MonoBehaviour {
         paused = false;
 
         TimeText.text = "Time: " + timeLeft;
-        HighScoreText.text = PlayerPrefs.GetInt("Highscore", 0).ToString(); //highscore
 
         StartMenu.gameObject.SetActive(true);
     }
@@ -48,6 +47,8 @@ public class Manager : MonoBehaviour {
         GOver.enabled = true;
         lose = true;
         ball.GetComponent<SphereCollider>().material = null;
+        Rigidbody rb = ball.GetComponent<Rigidbody>();
+        rb.isKinematic = true;
 
         PauseMenu.gameObject.SetActive(true);
         pausedGOver.gameObject.SetActive(true);
@@ -118,9 +119,12 @@ public class Manager : MonoBehaviour {
         {
             paused = false;
         }
-        
+
         //updating score
-        ScoreText.text = "Score: " + BrickScript.score;
+        if (lose == false)
+        {
+            ScoreText.text = "Score: " + BrickScript.score;
+        }
 
         //updating highscore
         if (BrickScript.score > PlayerPrefs.GetInt("Highscore", 0))

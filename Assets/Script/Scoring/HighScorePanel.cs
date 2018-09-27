@@ -13,7 +13,7 @@ public class HighScorePanel : MonoBehaviour {
         if(ScoreManager.LoadScore())
         {
             gameObject.SetActive(true);
-            scoreField.text = "" + ScoreManager.HighScore;
+            scoreField.text = "High Score: " + ScoreManager.HighScore;
         }
         else
         {
