@@ -5088,7 +5088,7 @@ GameObject:
   - component: {fileID: 390991995}
   - component: {fileID: 390991994}
   m_Layer: 0
-  m_Name: backwall
+  m_Name: plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24272,6 +24272,16 @@ Prefab:
         type: 2}
       propertyPath: moveSpeed
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 114015729588894018, guid: 543126f3d93bdd145a9da7b55d1a0480,
+        type: 2}
+      propertyPath: control
+      value: Oculus_GearVR_RIndexTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 114015729588894018, guid: 543126f3d93bdd145a9da7b55d1a0480,
+        type: 2}
+      propertyPath: laserForce
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 543126f3d93bdd145a9da7b55d1a0480, type: 2}

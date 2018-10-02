@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PointScript : MonoBehaviour {
     LineRenderer laserLine;
+    public string control;
+    public float laserForce;
 
     void Start () {
         laserLine = GetComponent<LineRenderer>();
@@ -12,7 +14,7 @@ public class PointScript : MonoBehaviour {
     }	
 	
 	void Update () {
-        if (Input.GetButton("Fire2"))
+        if (Input.GetAxis(control) == 1)
         {
             Debug.Log("BUTTON PUSHED");
             RaycastHit hit;
@@ -25,10 +27,18 @@ public class PointScript : MonoBehaviour {
             {
                 Debug.Log("Pointing at " + hit.transform.name);
                 laserLine.SetPosition(1, hit.point);
+
                 Button b = hit.transform.GetComponent<Button>();
                 if(b)
                 {
                     b.onClick.Invoke();
+                }
+
+                Rigidbody r = hit.rigidbody;
+                if(r)
+                {
+                    Vector3 forceVector = gameObject.transform.forward * laserForce;
+                    r.AddForceAtPosition(forceVector, hit.point);
                 }
             }
             else
