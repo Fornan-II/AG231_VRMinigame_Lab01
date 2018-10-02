@@ -18,6 +18,7 @@ public class Manager : MonoBehaviour {
     public Text TimeText;
     public Image StartMenu;
     public Image PauseMenu;
+    public Image InstructionsMenu;
     public GameObject ball;
     public GameObject player;
     public GameObject paddle;
@@ -41,6 +42,7 @@ public class Manager : MonoBehaviour {
         TimeText.text = "Time: " + timeLeft;
 
         StartMenu.gameObject.SetActive(true);
+        InstructionsMenu.gameObject.SetActive(false);
     }
     public void Lost()
     {
@@ -147,6 +149,16 @@ public class Manager : MonoBehaviour {
                 SceneManager.LoadScene("NewGameScene");                
             }
         }
+    }
+    public void GoBackB()
+    {
+        StartMenu.gameObject.SetActive(false);
+        InstructionsMenu.gameObject.SetActive(true);
+    }
+    public void Instructions()
+    {
+        StartMenu.gameObject.SetActive(true);
+        InstructionsMenu.gameObject.SetActive(false);
     }
 
     public void RestartGame()
