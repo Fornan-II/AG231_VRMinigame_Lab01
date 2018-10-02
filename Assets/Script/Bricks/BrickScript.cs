@@ -8,12 +8,25 @@ public class BrickScript : MonoBehaviour {
     protected static int totalBrickCount = 0;
     public GameObject destroyParticlePrefab;
     public float particleLifeTime;
-    public static int score;
+    public static int score
+    {
+        get
+        {
+            return totalBrickCount - bricksRemaining;
+        }
+    }
+
+    protected Collider _col;
+    protected MeshRenderer _mr;
+
+    public float extendedLife = 0.0f;
 
     protected virtual void Start()
     {
         totalBrickCount++;
         bricksRemaining++;
+        _col = gameObject.GetComponent<Collider>();
+        _mr = gameObject.GetComponent<MeshRenderer>();
     }
 
     protected virtual void OnCollisionEnter(Collision collision)
@@ -30,19 +43,34 @@ public class BrickScript : MonoBehaviour {
                 }*/
                 Destroy(particle, particleLifeTime);
             }
-            Destroy(gameObject);
-            bricksRemaining--;
+            StartCoroutine(DestroyAfterLittleBit());
         }
-    }
-
-    private void Update()
-    {
-        score = totalBrickCount - bricksRemaining;
     }
 
     public static void ResetBrickCount()
     {
         bricksRemaining = 0;
         totalBrickCount = 0;
+    }
+
+    protected virtual IEnumerator DestroyAfterLittleBit()
+    {
+        float t = 0.0f;
+        DisableBrick();
+
+        while(t < extendedLife)
+        {
+            yield return null;
+            t += Time.deltaTime;
+        }
+
+        Destroy(gameObject);
+        bricksRemaining--;
+    }
+
+    protected virtual void DisableBrick()
+    {
+        if(_col) { _col.enabled = false; }
+        if(_mr) { _mr.enabled = false; }
     }
 }

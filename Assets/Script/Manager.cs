@@ -48,9 +48,10 @@ public class Manager : MonoBehaviour {
     {
         GOver.enabled = true;
         lose = true;
-        ball.GetComponent<SphereCollider>().material = null;
         Rigidbody rb = ball.GetComponent<Rigidbody>();
+        //Collider col = ball.GetComponent<Collider>();
         rb.isKinematic = true;
+        //col.enabled = false;
 
         PauseMenu.gameObject.SetActive(true);
         pausedGOver.gameObject.SetActive(true);
@@ -126,6 +127,7 @@ public class Manager : MonoBehaviour {
         if (lose == false)
         {
             ScoreText.text = "Score: " + BrickScript.score;
+            Debug.Log("Score: " + BrickScript.score);
         }
 
         //updating highscore
@@ -137,13 +139,13 @@ public class Manager : MonoBehaviour {
         //restart script
         if (lose == true)
         {
-            if (doRestart)
+            if (ScoreManager.HighScore < BrickScript.score)
             {
-                if (ScoreManager.HighScore < BrickScript.score)
-                {
-                    ScoreManager.HighScore = BrickScript.score;
-                    ScoreManager.SaveScore();
-                }
+                ScoreManager.HighScore = BrickScript.score;
+                ScoreManager.SaveScore();
+            }
+            if (doRestart)
+            {   
                 Time.timeScale = 1.0f;
                 BrickScript.ResetBrickCount();
                 SceneManager.LoadScene("NewGameScene");                
@@ -152,13 +154,13 @@ public class Manager : MonoBehaviour {
     }
     public void GoBackB()
     {
-        StartMenu.gameObject.SetActive(false);
-        InstructionsMenu.gameObject.SetActive(true);
+        StartMenu.gameObject.SetActive(true);
+        InstructionsMenu.gameObject.SetActive(false);
     }
     public void Instructions()
     {
-        StartMenu.gameObject.SetActive(true);
-        InstructionsMenu.gameObject.SetActive(false);
+        StartMenu.gameObject.SetActive(false);
+        InstructionsMenu.gameObject.SetActive(true);
     }
 
     public void RestartGame()

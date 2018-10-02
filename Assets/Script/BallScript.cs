@@ -31,20 +31,6 @@ public class BallScript : MonoBehaviour {
         {
             startGame = true;
         }
-
-        //Making sure the ball hits paddle, even when moving fast
-        RaycastHit[] rch = _rb.SweepTestAll(_rb.velocity, _rb.velocity.magnitude * Time.fixedDeltaTime);
-        if(rch.Length > 0)
-        {
-            foreach(RaycastHit hit in rch)
-            {
-                GrabbedObject go = hit.transform.GetComponent<GrabbedObject>();
-                if(go)
-                {
-                    go.OnTriggerEnter(_col);
-                }
-            }
-        }
     }
 
     private void OnCollisionEnter(Collision collision)

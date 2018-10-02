@@ -26,7 +26,7 @@ public class PointScript : MonoBehaviour {
             int layermask = 1 << LayerMask.NameToLayer("player");
             layermask = ~layermask;
 
-            if (Physics.Raycast(rayOrigin, gameObject.transform.forward, out hit, 10, layermask, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(rayOrigin, gameObject.transform.forward, out hit, 10, layermask))
             {
                 Debug.Log("Pointing at " + hit.transform.name);
                 laserLine.SetPosition(1, hit.point);
