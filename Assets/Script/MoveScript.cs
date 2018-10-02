@@ -15,8 +15,9 @@ public class MoveScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Vector3 newVelocity = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
-        newVelocity = head.transform
+        //Vector3 newVelocity = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+        Vector3 newVelocity = head.forward * Input.GetAxis("Horizontal") + head.right * Input.GetAxis("Vertical");
+        newVelocity.y = 0.0f;
         newVelocity *= moveSpeed * Time.deltaTime;
         rb.velocity = newVelocity;
 	}
