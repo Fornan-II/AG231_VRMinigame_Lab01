@@ -60,8 +60,8 @@ public class BallScript : MonoBehaviour {
         }
     }
 
-
-    private void OnCollisionStay(Collision collision)
+    //Old min velocity code
+    /*private void OnCollisionStay(Collision collision)
     {
         if (_rb && minimumForwardVelocity != 0.0f)
         {
@@ -75,5 +75,5 @@ public class BallScript : MonoBehaviour {
                 _rb.velocity = new Vector3(_rb.velocity.x, _rb.velocity.y, zVel);
             }
         }
-    }
+    }*/
 }
