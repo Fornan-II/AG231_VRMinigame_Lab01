@@ -23,7 +23,10 @@ public class PointScript : MonoBehaviour {
             Vector3 rayOrigin = gameObject.transform.position;
             laserLine.SetPosition(0, gameObject.transform.position);
 
-            if (Physics.Raycast(rayOrigin, gameObject.transform.forward, out hit, 10))
+            int layermask = 1 << LayerMask.NameToLayer("player");
+            layermask = ~layermask;
+
+            if (Physics.Raycast(rayOrigin, gameObject.transform.forward, out hit, 10, layermask, QueryTriggerInteraction.Ignore))
             {
                 Debug.Log("Pointing at " + hit.transform.name);
                 laserLine.SetPosition(1, hit.point);
@@ -38,7 +41,7 @@ public class PointScript : MonoBehaviour {
                 if(r)
                 {
                     Vector3 forceVector = gameObject.transform.forward * laserForce;
-                    r.AddForceAtPosition(forceVector, hit.point);
+                    r.AddForce(forceVector);
                 }
             }
             else
