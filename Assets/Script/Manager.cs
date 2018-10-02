@@ -144,7 +144,7 @@ public class Manager : MonoBehaviour {
                 }
                 Time.timeScale = 1.0f;
                 BrickScript.ResetBrickCount();
-                SceneManager.LoadScene("GameScene");                
+                SceneManager.LoadScene("NewGameScene");                
             }
         }
     }
