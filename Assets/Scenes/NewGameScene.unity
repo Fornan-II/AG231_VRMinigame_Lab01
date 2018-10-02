@@ -10268,6 +10268,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 725075464}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &731644141 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4387192241803680, guid: 543126f3d93bdd145a9da7b55d1a0480,
+    type: 2}
+  m_PrefabInternal: {fileID: 1718798137}
 --- !u!1 &734862896
 GameObject:
   m_ObjectHideFlags: 0
@@ -24349,6 +24354,16 @@ Prefab:
         type: 2}
       propertyPath: laserForce
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114529008449910336, guid: 543126f3d93bdd145a9da7b55d1a0480,
+        type: 2}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 731644141}
+    - target: {fileID: 54364309896387384, guid: 543126f3d93bdd145a9da7b55d1a0480,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 543126f3d93bdd145a9da7b55d1a0480, type: 2}
