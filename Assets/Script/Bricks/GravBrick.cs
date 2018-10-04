@@ -26,7 +26,7 @@ public class GravBrick : BrickScript {
         }
 
         if (MulitplierScript.multiplier == true)
-        { score = +2; }
+        { score += 2; }
         score++;
 
         while (t < noGravDuration)
