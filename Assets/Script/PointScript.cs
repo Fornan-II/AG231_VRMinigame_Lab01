@@ -8,6 +8,8 @@ public class PointScript : MonoBehaviour {
     public string control;
     public float laserForce;
 
+    protected bool _hasHitButton = true;
+
     void Start () {
         laserLine = GetComponent<LineRenderer>();
         laserLine.enabled = false;
@@ -16,7 +18,6 @@ public class PointScript : MonoBehaviour {
 	void Update () {
         if (Input.GetAxis(control) == 1)
         {
-            Debug.Log("BUTTON PUSHED");
             RaycastHit hit;
             laserLine.enabled = true;
 
@@ -32,9 +33,10 @@ public class PointScript : MonoBehaviour {
                 laserLine.SetPosition(1, hit.point);
 
                 Button b = hit.transform.GetComponent<Button>();
-                if(b)
+                if(b && !_hasHitButton)
                 {
                     b.onClick.Invoke();
+                    _hasHitButton = true;
                 }
 
                 Rigidbody r = hit.rigidbody;
@@ -52,6 +54,7 @@ public class PointScript : MonoBehaviour {
         else
         {
             laserLine.enabled = false;
+            _hasHitButton = false;
         }
     }
 }

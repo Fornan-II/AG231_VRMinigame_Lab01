@@ -153,7 +153,8 @@ public class Manager : MonoBehaviour {
                 ScoreManager.SaveScore();
             }
             if (doRestart)
-            {   
+            {
+                runTimeScale = 1.0f;
                 Time.timeScale = runTimeScale;
                 BrickScript.ResetBrickCount();
                 SceneManager.LoadScene("NewGameScene");                
@@ -181,6 +182,7 @@ public class Manager : MonoBehaviour {
     public void EndGame()
     {
         Debug.Log("Quito");
+        //UnityEditor.EditorApplication.isPaused = true;
         Application.Quit();
     }
 

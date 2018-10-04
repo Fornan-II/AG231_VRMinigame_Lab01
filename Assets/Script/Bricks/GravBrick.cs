@@ -16,8 +16,11 @@ public class GravBrick : BrickScript {
         List<Rigidbody> ballsRB = new List<Rigidbody>();
         foreach(GameObject b in balls)
         {
-            GameObject gp = Instantiate(gravParticle, ball.transform);
-            Destroy(gp, noGravDuration);
+            if(gravParticle)
+            {
+                GameObject gp = Instantiate(gravParticle, ball.transform);
+                Destroy(gp, noGravDuration);
+            }
             Rigidbody ballRB = b.GetComponent<Rigidbody>();
             if(ballRB)
             {
@@ -38,7 +41,10 @@ public class GravBrick : BrickScript {
 
         foreach (Rigidbody ballRB in ballsRB)
         {
-            ballRB.useGravity = true;
+            if(ballRB)
+            {
+                ballRB.useGravity = true;
+            }
         }
         
         Destroy(gameObject);
