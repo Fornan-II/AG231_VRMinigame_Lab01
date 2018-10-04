@@ -9,7 +9,7 @@ public class MulitplierScript : BrickScript
     {
         float t = 0.0f;
         DisableBrick();
-        extendedLife = 10f;
+        extendedLife = 3f;
         score += 2;
 
         while (t < extendedLife)
