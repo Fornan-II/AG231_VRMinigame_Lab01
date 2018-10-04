@@ -30,7 +30,8 @@ public class Manager : MonoBehaviour {
     bool lose;
     bool paused;
     protected bool doRestart;
-    
+
+    public static float runTimeScale = 1.0f;    
 
     public static bool PAUSE_GAME = false;
 
@@ -38,6 +39,7 @@ public class Manager : MonoBehaviour {
     {
         lose = false;
         paused = false;
+        runTimeScale = 1.0f;
 
         TimeText.text = "Time: " + timeLeft;
 
@@ -60,7 +62,7 @@ public class Manager : MonoBehaviour {
 
 
 
-    private void Update()
+    private void FixedUpdate()
     {   //timer
         if (Grabby.startGame == true) //ballscript, grabby, manager
         {
@@ -69,7 +71,7 @@ public class Manager : MonoBehaviour {
                 if (lose == false)
                 {
                     //Debug.Log("lose is false");
-                    timeLeft -= Time.deltaTime;
+                    timeLeft -= Time.fixedDeltaTime;
                     TimeText.text = "Time: " + timeLeft;
                     if (timeLeft < 0)
                     {
@@ -108,7 +110,7 @@ public class Manager : MonoBehaviour {
                 else// if (PauseMenu.gameObject.activeSelf == true)
                 {
                     PauseMenu.gameObject.SetActive(false);
-                    Time.timeScale = 1.0f;
+                    Time.timeScale = runTimeScale;
                     PAUSE_GAME = false;
                 }
             }
@@ -145,7 +147,7 @@ public class Manager : MonoBehaviour {
             }
             if (doRestart)
             {   
-                Time.timeScale = 1.0f;
+                Time.timeScale = runTimeScale;
                 BrickScript.ResetBrickCount();
                 SceneManager.LoadScene("NewGameScene");                
             }
