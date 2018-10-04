@@ -5,7 +5,7 @@ using UnityEngine;
 public class BrickScript : MonoBehaviour {
     
     public GameObject destroyParticlePrefab;
-    public float particleLifeTime;
+    protected float particleLifeTime = 1.0f;
     public static int score = 0;
     /*public static int score
     {
