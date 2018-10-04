@@ -15,7 +15,7 @@ public class FreezeScript : BrickScript {
         score++;
 
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
-        Rigidbody ballRB = ballRB = ball.GetComponent<Rigidbody>();
+        Rigidbody ballRB = ball.GetComponent<Rigidbody>();
         Vector3 vel = ballRB.velocity;
         Vector3 avel = ballRB.angularVelocity;
 
