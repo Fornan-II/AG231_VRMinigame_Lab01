@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33913169417289730}
   - component: {fileID: 23219330002476260}
   - component: {fileID: 65383774594812094}
-  - component: {fileID: 114830990392362022}
   - component: {fileID: 82438528910213840}
+  - component: {fileID: 114947938652760676}
   m_Layer: 0
   m_Name: MultiBallBrick
   m_TagString: Untagged
@@ -193,7 +193,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114830990392362022
+--- !u!114 &114947938652760676
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,10 +201,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1951445516488120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa29a1c0e5ba4574fa5354c192cb335e, type: 3}
+  m_Script: {fileID: 11500000, guid: aa45ee32b65dc41438cf8d76c0a654d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destroyParticlePrefab: {fileID: 1889263952128042, guid: 4de754472bdb4154f8f2d9c21d6d15cf,
     type: 2}
-  particleLifeTime: 1
+  particleLifeTime: 0
   extendedLife: 0

@@ -41,7 +41,7 @@ public class BrickScript : MonoBehaviour {
                 }*/
                 Destroy(particle, particleLifeTime);
             }
-            StartCoroutine(DestroyAfterLittleBit());
+            StartCoroutine(DestroyAfterLittleBit(collision));
         }
     }
 
@@ -50,7 +50,7 @@ public class BrickScript : MonoBehaviour {
         score = 0;
     }
 
-    protected virtual IEnumerator DestroyAfterLittleBit()
+    protected virtual IEnumerator DestroyAfterLittleBit(Collision ball)
     {
         float t = 0.0f;
         DisableBrick();

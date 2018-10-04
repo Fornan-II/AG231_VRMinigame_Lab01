@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class TwoBallScript : BrickScript {
 
-    protected override IEnumerator DestroyAfterLittleBit()
+    protected override IEnumerator DestroyAfterLittleBit(Collision ball)
     {
         float t = 0.0f;
         DisableBrick();
 
-        extendedLife = 5f;
+        extendedLife = 20f;
 
         if (MulitplierScript.multiplier == true)
         { score += 2; }
         score++;
 
-        GameObject ball = GameObject.FindGameObjectWithTag("Ball");
-        Rigidbody ballRB= ball.GetComponent<Rigidbody>();
+        Rigidbody ballRB = ball.gameObject.GetComponent<Rigidbody>();
         Vector3 vel = ballRB.velocity;
         Vector3 avel = ballRB.angularVelocity;
 
-        GameObject newBall = Instantiate(ball, ball.transform.position, ball.transform.rotation);
+        GameObject newBall = Instantiate(ball.gameObject, ball.transform.position, ball.transform.rotation);
         Rigidbody newBallRB = newBall.GetComponent<Rigidbody>();
         newBallRB.velocity = vel * -1;
         newBallRB.velocity = avel;

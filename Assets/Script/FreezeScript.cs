@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FreezeScript : BrickScript {
-    protected override IEnumerator DestroyAfterLittleBit()
+    protected override IEnumerator DestroyAfterLittleBit(Collision ball)
     {
         float t = 0.0f;
         DisableBrick();
@@ -14,8 +14,7 @@ public class FreezeScript : BrickScript {
         { score += 2; }
         score++;
 
-        GameObject ball = GameObject.FindGameObjectWithTag("Ball");
-        Rigidbody ballRB = ball.GetComponent<Rigidbody>();
+        Rigidbody ballRB = ball.gameObject.GetComponent<Rigidbody>();
         Vector3 vel = ballRB.velocity;
         Vector3 avel = ballRB.angularVelocity;
 

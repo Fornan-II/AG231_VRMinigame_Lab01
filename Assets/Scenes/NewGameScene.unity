@@ -724,10 +724,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.91817397
       objectReference: {fileID: 0}
+    - target: {fileID: 23280114300178180, guid: 80f67732e73ce4741a92965ea0b12e70,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ae2b1afb36196fb479fd0afb57f044aa, type: 2}
     m_RemovedComponents:
     - {fileID: 114194928938385062, guid: 80f67732e73ce4741a92965ea0b12e70, type: 2}
     - {fileID: 114803628250792442, guid: 80f67732e73ce4741a92965ea0b12e70, type: 2}
     - {fileID: 114805306496115018, guid: 80f67732e73ce4741a92965ea0b12e70, type: 2}
+    - {fileID: 114834155885642568, guid: 80f67732e73ce4741a92965ea0b12e70, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 80f67732e73ce4741a92965ea0b12e70, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &48962419 stripped
@@ -2069,6 +2075,11 @@ Prefab:
         type: 2}
       propertyPath: m_Color.b
       value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 54209399379407762, guid: ab751fefdd122b442ba95d961b6dda21,
+        type: 2}
+      propertyPath: m_Interpolate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab751fefdd122b442ba95d961b6dda21, type: 2}
@@ -7432,7 +7443,7 @@ Prefab:
       value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114933336883759892, guid: 1640c011ca197bf4abb8f4117423a01e, type: 2}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1640c011ca197bf4abb8f4117423a01e, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &390991993
@@ -32191,6 +32202,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -0.1612
       objectReference: {fileID: 0}
+    - target: {fileID: 54364309896387384, guid: 543126f3d93bdd145a9da7b55d1a0480,
+        type: 2}
+      propertyPath: m_Interpolate
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 543126f3d93bdd145a9da7b55d1a0480, type: 2}
   m_IsPrefabAsset: 0
@@ -33129,6 +33145,27 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31a7416fd158264488fc8278a97d69db, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1766575307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1311001053095664, guid: 80f67732e73ce4741a92965ea0b12e70,
+    type: 2}
+  m_PrefabInternal: {fileID: 48962418}
+--- !u!114 &1766575310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1766575307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c347498d49f5774a98ac39cb08c2865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyParticlePrefab: {fileID: 1889263952128042, guid: 4de754472bdb4154f8f2d9c21d6d15cf,
+    type: 2}
+  particleLifeTime: 0
+  extendedLife: 0
+  SlowTimeScale: 0.5
 --- !u!1 &1771163528
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,21 +7,22 @@ public class GravBrick : BrickScript {
     public GameObject gravParticle;
     public float noGravDuration = 3.0f;
 
-    protected override IEnumerator DestroyAfterLittleBit()
+    protected override IEnumerator DestroyAfterLittleBit(Collision ball)
     {
         float t = 0.0f;
         DisableBrick();
 
-        GameObject ball = GameObject.FindGameObjectWithTag("Ball");
-        Rigidbody ballRB = null;
-        if(ball)
+        GameObject[] balls = GameObject.FindGameObjectsWithTag("Ball");
+        List<Rigidbody> ballsRB = new List<Rigidbody>();
+        foreach(GameObject b in balls)
         {
             GameObject gp = Instantiate(gravParticle, ball.transform);
             Destroy(gp, noGravDuration);
-            ballRB = ball.GetComponent<Rigidbody>();
+            Rigidbody ballRB = b.GetComponent<Rigidbody>();
             if(ballRB)
             {
                 ballRB.useGravity = false;
+                ballsRB.Add(ballRB);
             }
         }
 
@@ -35,11 +36,10 @@ public class GravBrick : BrickScript {
             t += Time.deltaTime;
         }
 
-        if(ballRB)
+        foreach (Rigidbody ballRB in ballsRB)
         {
             ballRB.useGravity = true;
         }
-
         
         Destroy(gameObject);
     }

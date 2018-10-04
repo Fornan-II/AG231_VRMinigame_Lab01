@@ -71,7 +71,7 @@ public class Manager : MonoBehaviour {
                 if (lose == false)
                 {
                     //Debug.Log("lose is false");
-                    timeLeft -= Time.deltaTime;
+                    timeLeft -= Time.deltaTime * Time.timeScale;
                     TimeText.text = "Time: " + timeLeft;
                     if (timeLeft < 0)
                     {
@@ -106,12 +106,14 @@ public class Manager : MonoBehaviour {
                     pause.gameObject.SetActive(true);
 
                     Time.timeScale = 0.0f;
+                    PAUSE_GAME = true;
                 }
                 else// if (PauseMenu.gameObject.activeSelf == true)
                 {
                     PauseMenu.gameObject.SetActive(false);
-                    Time.timeScale = runTimeScale;
                     PAUSE_GAME = false;
+
+                    Time.timeScale = runTimeScale;
                 }
             }
         }
@@ -123,6 +125,11 @@ public class Manager : MonoBehaviour {
         else
         {
             paused = false;
+        }
+
+        if(!lose && !PAUSE_GAME)
+        {
+            Time.timeScale = runTimeScale;
         }
 
         //updating score

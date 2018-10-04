@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BulletTimeBrick : BrickScript {
 
-    public float SlowTimeScale = 0.5f;
+    public float SlowTimeScale = 0.3f;
 
-    protected override IEnumerator DestroyAfterLittleBit()
+    protected override IEnumerator DestroyAfterLittleBit(Collision ball)
     {
         float t = 0.0f;
         DisableBrick();

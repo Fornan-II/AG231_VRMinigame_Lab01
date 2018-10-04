@@ -5,7 +5,7 @@ using UnityEngine;
 public class MulitplierScript : BrickScript
 {
     public static bool multiplier = false;
-    protected override IEnumerator DestroyAfterLittleBit()
+    protected override IEnumerator DestroyAfterLittleBit(Collision ball)
     {
         float t = 0.0f;
         DisableBrick();
