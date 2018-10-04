@@ -127,7 +127,6 @@ public class Manager : MonoBehaviour {
         if (lose == false)
         {
             ScoreText.text = "Score: " + BrickScript.score;
-            Debug.Log("Score: " + BrickScript.score);
         }
 
         //updating highscore
