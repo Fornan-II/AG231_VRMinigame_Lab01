@@ -25,6 +25,10 @@ public class GravBrick : BrickScript {
             }
         }
 
+        if (MulitplierScript.multiplier == true)
+        { score = +2; }
+        score++;
+
         while (t < noGravDuration)
         {
             yield return null;
@@ -36,9 +40,7 @@ public class GravBrick : BrickScript {
             ballRB.useGravity = true;
         }
 
-        if (MulitplierScript.multiplier == true)
-        { score = +2; }
-        score++;
+        
         Destroy(gameObject);
     }
 }

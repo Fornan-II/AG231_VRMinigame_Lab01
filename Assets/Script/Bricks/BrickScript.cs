@@ -55,16 +55,18 @@ public class BrickScript : MonoBehaviour {
         float t = 0.0f;
         DisableBrick();
 
-        while(t < extendedLife)
+        if (MulitplierScript.multiplier == true)
+        { score = +2; }
+
+        score++;
+
+        while (t < extendedLife)
         {
             yield return null;
             t += Time.deltaTime;
         }
 
-        if(MulitplierScript.multiplier == true)
-        { score = +2; }
-
-        score++;
+        
         Destroy(gameObject);
     }
 

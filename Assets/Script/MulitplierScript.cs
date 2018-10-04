@@ -10,6 +10,7 @@ public class MulitplierScript : BrickScript
         float t = 0.0f;
         DisableBrick();
         extendedLife = 10f;
+        score += 2;
 
         while (t < extendedLife)
         {
@@ -18,7 +19,7 @@ public class MulitplierScript : BrickScript
             t += Time.deltaTime;
         }
 
-        score += 2;
+       
         multiplier = false;
         Destroy(gameObject);
     }
