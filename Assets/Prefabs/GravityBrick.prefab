@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 82670761301320732}
   - component: {fileID: 114547302793564052}
   m_Layer: 0
-  m_Name: Brick (34)
+  m_Name: GravityBrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
