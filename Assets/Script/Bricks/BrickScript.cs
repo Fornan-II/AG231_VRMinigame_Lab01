@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BrickScript : MonoBehaviour {
-
-    public static int bricksRemaining = 0;
-    protected static int totalBrickCount = 0;
+    
     public GameObject destroyParticlePrefab;
     public float particleLifeTime;
-    public static int score
+    public static int score = 0;
+    /*public static int score
     {
         get
         {
             return totalBrickCount - bricksRemaining;
         }
-    }
+    }*/
 
     protected Collider _col;
     protected MeshRenderer _mr;
@@ -23,11 +22,10 @@ public class BrickScript : MonoBehaviour {
 
     protected virtual void Start()
     {
-        totalBrickCount++;
-        bricksRemaining++;
         _col = gameObject.GetComponent<Collider>();
         _mr = gameObject.GetComponent<MeshRenderer>();
     }
+   
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
@@ -49,8 +47,7 @@ public class BrickScript : MonoBehaviour {
 
     public static void ResetBrickCount()
     {
-        bricksRemaining = 0;
-        totalBrickCount = 0;
+        score = 0;
     }
 
     protected virtual IEnumerator DestroyAfterLittleBit()
@@ -64,8 +61,11 @@ public class BrickScript : MonoBehaviour {
             t += Time.deltaTime;
         }
 
+        if(MulitplierScript.multiplier == true)
+        { score = +2; }
+
+        score++;
         Destroy(gameObject);
-        bricksRemaining--;
     }
 
     protected virtual void DisableBrick()

@@ -36,7 +36,9 @@ public class GravBrick : BrickScript {
             ballRB.useGravity = true;
         }
 
+        if (MulitplierScript.multiplier == true)
+        { score = +2; }
+        score++;
         Destroy(gameObject);
-        bricksRemaining--;
     }
 }
