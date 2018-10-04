@@ -62,7 +62,7 @@ public class Manager : MonoBehaviour {
 
 
 
-    private void FixedUpdate()
+    private void Update()
     {   //timer
         if (Grabby.startGame == true) //ballscript, grabby, manager
         {
@@ -71,7 +71,7 @@ public class Manager : MonoBehaviour {
                 if (lose == false)
                 {
                     //Debug.Log("lose is false");
-                    timeLeft -= Time.fixedDeltaTime;
+                    timeLeft -= Time.deltaTime;
                     TimeText.text = "Time: " + timeLeft;
                     if (timeLeft < 0)
                     {

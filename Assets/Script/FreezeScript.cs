@@ -15,22 +15,21 @@ public class FreezeScript : BrickScript {
         score++;
 
         GameObject ball = GameObject.FindGameObjectWithTag("Ball");
-        Rigidbody ballRB = null;
+        Rigidbody ballRB = ballRB = ball.GetComponent<Rigidbody>();
         Vector3 vel = ballRB.velocity;
         Vector3 avel = ballRB.angularVelocity;
 
         while (t < extendedLife)
         {
-            ballRB = ball.GetComponent<Rigidbody>();
             if (ballRB)
             {
-                ballRB.isKinematic = false;
+                ballRB.isKinematic = true;
             }
             yield return null;
             t += Time.deltaTime;
         }
         
-        ballRB.isKinematic = true;
+        ballRB.isKinematic = false;
         ballRB.velocity = vel;
         ballRB.angularVelocity = avel;
 
